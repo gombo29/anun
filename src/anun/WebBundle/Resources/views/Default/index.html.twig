@@ -1,0 +1,372 @@
+{% extends '@anunWeb/Layout/base.html.twig' %}
+{% block style %}
+    <style>
+        @media screen and (max-width: 768px) {
+            .zuragnuud {
+                display: none !important;
+            }
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="swiper-container parallax-slider parallax-window" data-parallax="scroll"
+         data-speed="-0.1">
+
+
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"
+                 style="background-image: url('{{ asset('resources/web/images/cover4.jpg') }}');background-position: center center;background-repeat: no-repeat;">
+            </div>
+
+
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+        <div class="swiper-button-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+    </div>
+
+
+    <div class="about-us-2 big-padding text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12  wow bounceIn">
+                    <div class="section">
+                        <h2>БИДНИЙ ТУХАЙ</h2>
+                        <h6 style="margin-top: 50px;font-size: 18px;font-weight: 300">АНУН ХХК нь 1997 онд бизнесийн
+                            гараагаа тавилгын импорт, худалдаагаар эхэлж байсан түүхтэй. 20 жилийн турш үйл
+                            ажиллагаагаа өргөжүүлэн тэлсээр өнөөдөр өндөр хүчин чадал бүхий өөрийн үйлдвэрт дотоодын
+                            хэрэглэгчдийн онцлогт тохирсон тавилгын үйлдвэрлэлийг амжилттай явуулж байна.</i>
+                        </h6>
+                        <img src="{{ asset('resources/web/images/signature.png') }}" style="margin-top: 50px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sandal -->
+
+    <div class="service-1 mid-level-padding text-center"
+         style="background-color: #ffd200;padding: 0;padding-top: 50px;;overflow: hidden">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-6 wow slideInLeft animated"
+                     style="visibility: visible; animation-name: slideInLeft;">
+                    <div class="outer-bound">
+                        <div class="left-section">
+
+                            <div class="feature">
+                                <div class="row">
+                                    <div style="width: 70%;border-bottom: 2px solid #ffffff;padding-bottom: 20px;padding-top: 30px;">
+                                        <h2 style="font-size: 50px;color: #ffffff;text-align: left">
+                                            АЛБАН ТАСАЛГААНЫ ТАВИЛГА
+                                        </h2>
+                                    </div>
+                                    <div style="width: 70%;padding-top: 20px;">
+                                        <p style="text-align: justify;color: #7a7785;font-size: 15px;font-weight: 100 ">
+                                            АНУН ХХК нь олон улсын чанарын
+                                            стандартад нийцсэн тавилгыг худалдаалдагбөгөөд бидний бүтээгдэхүүнүүд
+                                            дараах шаардлагуудыгхангасан байдаг.
+                                        </p>
+
+                                        <a style="display: block;color: #7a7785;float: left;margin-top: 25px;" href="#">
+                                            <i class="fa fa-chevron-circle-down" style="font-size: 20px;">
+
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-4 zuragnuud">
+                    <div class="right-section wow slideInRight animated"
+                         style="visibility: visible; animation-name: slideInRight;width: 100%">
+                        <img src="{{ asset('resources/web/images/chair.png') }}" class="img-responsive" alt="Сандал">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- buidan -->
+
+    <div class="service-1 mid-level-padding text-center"
+         style="background-color: #1b1b1b;padding: 0;padding-bottom: 50px;padding-top: 50px">
+
+        <div class="row">
+            <div class="col-sm-6 wow slideInLeft animated zuragnuud"
+                 style="visibility: visible; animation-name: slideInLeft;">
+                <img src="{{ asset('resources/web/images/sofa.png') }}" class="img-responsive" alt="Сандал"
+                     style="width: 100%">
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4" style="padding-top: 80px;overflow: hidden">
+                <div class="right-section wow slideInRight animated"
+                     style="visibility: visible; animation-name: slideInRight;">
+                    <div class="outer-bound">
+                        <div class="left-section">
+
+                            <div class="feature">
+                                <div class="row">
+                                    <div style="border-bottom: 2px solid #ffd200;padding-bottom: 20px">
+                                        <h2 style="font-size: 86px;color: #ffd200;text-align: left">
+                                            Гэрийн Тавилга
+                                        </h2>
+                                    </div>
+                                    <div style="padding-top: 20px;">
+                                        <p style="text-align: justify;color: #7a7785;font-weight: 100;font-size: 15px">
+                                            АНУН дэлхийн зах зээлээс хамгийн
+                                            сайн чанарын гэр ахуйн тавилгыг
+                                            сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
+                                            хүргэдэг.
+                                        </p>
+
+                                        <a style="display: block;color: #7a7785;float: left;margin-top: 25px;" href="#">
+                                            <i class="fa fa-chevron-circle-down" style="font-size: 20px;">
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Mod -->
+
+    <div class="service-1 mid-level-padding text-center"
+         style="background-color: #ffd200;padding: 0;">
+
+        <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-5 wow slideInLeft animated"
+                 style="visibility: visible; animation-name: slideInLeft;">
+                <div class="outer-bound">
+                    <div class="left-section">
+
+                        <div class="feature">
+                            <div class="row">
+                                <div style="border-bottom: 2px solid #ffffff;padding-bottom: 20px;padding-top: 30px;">
+                                    <h2 style="font-size: 86px;color: #ffffff;text-align: left">
+                                        Үйлдвэр
+                                    </h2>
+                                </div>
+                                <div style="padding-top: 20px;">
+                                    <p style="text-align: justify;color: #7a7785;font-size: 15px;font-weight: 100 ">
+                                        АНУН дэлхийн зах зээлээс хамгийн
+                                        сайн чанарын гэр ахуйн тавилгыг
+                                        сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
+                                        хүргэдэг.
+                                    </p>
+
+                                    <a style="display: block;color: #7a7785;float: left;margin-top: 25px;" href="#">
+                                        <i class="fa fa-chevron-circle-down" style="font-size: 20px;">
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4 zuragnuud">
+                <div class="right-section wow slideInRight animated"
+                     style="visibility: visible; animation-name: slideInRight;width: 100%">
+                    <img src="{{ asset('resources/web/images/wood.png') }}" class="img-responsive" alt="Сандал">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- our team -->
+    <div id="service " class="mid-level-padding">
+        <div class="container">
+            <div class="row text-center">
+
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/has.png') }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/tolgoi.png') }}" alt="Richard"
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/unitel.png') }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/deloite.png') }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center" style="margin-top: 70px">
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/air.png') }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/tdb.png') }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset("resources/web/images/kia.png") }}" alt="Richard">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 fadeInUp zoomIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="thinker-wrap">
+                        <div class="thinker-image">
+                            <img src="{{ asset('resources/web/images/khaan.png') }}" alt="Richard"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about-us-2 big-padding text-center" style="background-color: #1b1b1b">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12  wow bounceIn">
+                    <div class="section">
+                        <h2 style="color: #ffffff;font-size: 24px"><i class="fa fa-quote-left" aria-hidden="true"></i>
+                            Бид өнгөрсөн 20 жилийн хугацаанд бизнесийн гараагаа
+                            эхлүүлж, өргөжин тэлж байгаа нийт 18,000 гаруй
+                            харилцагч байгууллагын ажлын байрыг иж бүрэн
+                            тохижуулж хүлээлгэн өгсөн байна.
+                            Манай компанийн чадварлаг хамт олон үргэлж эрхэм
+                            харилцагч таны сэтгэлд нийцсэн чанартай
+                            үйлчилгээг хүргэхээр хичээн ажиллах болно.<i class="fa fa-quote-right"
+                                                                         aria-hidden="true"></i>
+                        </h2>
+                        <h2 style="color: #ffd200;font-size: 24px;margin-top: 50px">Ж.УРАНЧИМЭГ</h2>
+                        <p style="color: #ffffff;">Ерөнхий захирал</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact-us2" class="mid-level-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="left-section">
+                        <div class="row">
+                            <div class="col-xs-12  ">
+                                <div class="section-top-heading" style="margin-bottom: 20px">
+                                    <h2>ХОЛБОО БАРИХ</h2>
+                                </div>
+                            </div>
+
+                        </div>
+                        <p>Хан-Уул дүүрэг, 3-р хороо
+                            Чингисийн өргөн чөлөө
+                            Улаанбаатар хот
+                            Монгол улс</p>
+                        <div id="countries">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <ul class="details one">
+                                        <li><i class="fa fa-mobile" aria-hidden="true"></i>(+976) 7777 8181</li>
+                                        <br>
+                                        <li><a href="mailto:contact@anun.mn"><i class="fa fa-envelope"
+                                                                                aria-hidden="true"></i> contact@anun.mn
+                                            </a></li>
+                                        <br>
+                                        <li><a href="http://www.anun.mn"><i class="fa fa-globe" aria-hidden="true"></i>www.anun.mn</a>
+                                        </li>
+                                        <br>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <ul class="list-inline">
+                            <li><a href="https://www.facebook.com/anun.llc" target="_blank"><i
+                                            class="fa fa-fw fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-fw fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="right-section" id="form-elements">
+                        <form onsubmit="return false" method="post">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Нэр"
+                                               required="required" id="name" name="name" style="padding: 8px 14px">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Цахим шуудан"
+                                               required="required" id="email" name="email" style="padding: 8px 14px">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Зурвас бичих..." required="required"
+                                          id="message"
+                                          name="message"></textarea>
+                            </div>
+                            <button type="submit" class="btn button" id="submit_btn">Илгээх</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

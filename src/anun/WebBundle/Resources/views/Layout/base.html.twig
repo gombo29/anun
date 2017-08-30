@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АНУН ХХК</title>
+    <link href="{{ asset("resources/web/css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/animate.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('resources/web/css/jquery.fancybox.css') }}" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('resources/web/css/zerogrid.css') }}">
+    <link href="{{ asset('resources/web/css/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/owl.transitions.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/swiper.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/web/css/styleblue.css') }}" rel="stylesheet">
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+{% include '@anunWeb/Layout/header.html.twig' %}
+
+{% block body %}
+{% endblock %}
+
+{% include '@anunWeb/Layout/footer.html.twig' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+{% block js %}
+{% endblock %}
+
+<script src="{{ asset('resources/web/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('resources/web/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('resources/web/js/wow.js') }}"></script>
+<script src="{{ asset('resources/web/js/jquery.mixitup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/web/js/jquery.fancybox.pack.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/web/js/jquery.fancybox-media.js') }}"></script>
+<script type="text/javascript" src="{{ asset('resources/web/js/jquery.fancybox-thumbs.js') }}"></script>
+<script src="{{ asset('resources/web/js/swiper.min.js') }}"></script>
+<script src="{{ asset('resources/web/js/jquery.appear.js') }}"></script>
+<script src="{{ asset('resources/web/js/parallax.min.js') }}"></script>
+<script src="{{ asset('resources/web/js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+{% extends '@anunWeb/Layout/base.html.twig' %}
+{% block style %}
+{% endblock %}
+{% block body %}
+
+    <div style="width:100%; height: 600px;margin-top: 60px" id="map-canvas">
+    </div>
+
+    <div class="container">
+        <div id="contact-us2" class="mid-level-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="left-section">
+                            <div class="row">
+                                <div class="col-xs-12  ">
+                                    <div class="section-top-heading" style="margin-bottom: 20px">
+                                        <h2>ХОЛБОО БАРИХ</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <p>Хан-Уул дүүрэг, 3-р хороо
+                                Чингисийн өргөн чөлөө
+                                Улаанбаатар хот
+                                Монгол улс</p>
+                            <div id="countries">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <ul class="details one">
+                                            <li><i class="fa fa-mobile" aria-hidden="true"></i>(+976) 7777 8181</li>
+                                            <br>
+                                            <li><a href="mailto:contact@anun.mn"><i class="fa fa-envelope"
+                                                                                    aria-hidden="true"></i> contact@anun.mn
+                                                </a></li>
+                                            <br>
+                                            <li><a href="http://www.anun.mn"><i class="fa fa-globe" aria-hidden="true"></i>www.anun.mn</a>
+                                            </li>
+                                            <br>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <ul class="list-inline">
+                                <li><a href="https://www.facebook.com/anun.llc" target="_blank"><i
+                                                class="fa fa-fw fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-fw fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-fw fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="right-section" id="form-elements">
+                            <form onsubmit="return false" method="post">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Нэр"
+                                                   required="required" id="name" name="name" style="padding: 8px 14px">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Цахим шуудан"
+                                                   required="required" id="email" name="email" style="padding: 8px 14px">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <textarea class="form-control" placeholder="Зурвас бичих..." required="required"
+                                          id="message"
+                                          name="message"></textarea>
+                                </div>
+                                <button type="submit" class="btn button" id="submit_btn">Илгээх</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSW1FWlrn8l8p5PxlPPqbYSiow86T7lb0"></script>
+    <script>
+        var myLatlng = new google.maps.LatLng(47.897441, 106.886859);
+        var mapOptions = {
+            zoom: 18,
+            center: myLatlng,
+            disableDoubleClickZoom: true,
+            zoomControl: true,
+            scaleControl: true,
+            scrollwheel: false,
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            title: "Hi!"
+        });
+
+        marker.setMap(map);
+    </script>
+{% endblock %}

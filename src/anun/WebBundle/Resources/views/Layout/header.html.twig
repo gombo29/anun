@@ -1,0 +1,34 @@
+<nav class="navbar navbar-fixed-top green">
+    <div class="container-fluid">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ path('home') }}"><img
+                            src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo"></a>
+            </div>
+
+            <div class="right">
+                <div id="burger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right" id="main-menu" style="display: none">
+                    <li {% if menu == 1 %}class="active"{% endif %}><a href="{{ path("home") }}">НҮҮР ХУУДАС</a></li>
+                    <li {% if menu == 2 %}class="active"{% endif %}><a href="{{ path("aboutus") }}">БИДНИЙ ТУХАЙ</a>
+                    </li>
+                    <li {% if menu == 3 %}class="active"{% endif %}><a href="{{ path('products') }}" class="scroll">БҮТЭЭГДЭХҮҮН</a>
+                    </li>
+                    <li class="hidden-class {% if menu == 4 %}active{% endif %}"><a href="{{ path('service') }}"
+                                                                                    class="scroll">ҮЙЛЧИЛГЭЭ</a></li>
+                    <li class="hidden-class {% if menu == 5 %}active{% endif %}"><a href="{{ path('contactus') }}" class="scroll">ХОЛБОО
+                            БАРИХ</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>

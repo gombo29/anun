@@ -1,0 +1,5 @@
+anun_web:
+    resource: "@anunWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
