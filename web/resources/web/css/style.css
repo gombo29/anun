@@ -50,11 +50,258 @@ body {
 
 }
 
+.home-bidnii-tuhai {
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 300
+}
+
+.home-alban-tasalgaa-header {
+    width: 70%;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 20px;
+    padding-top: 30px;
+    margin-left: 80px;
+}
+
+.home-alban-tasalgaa-header h2 {
+    font-size: 50px;
+    color: #ffffff;
+    text-align: left
+}
+
+.home-alban-tasalgaa-body {
+    width: 70%;
+    padding-top: 20px;
+    margin-left: 80px;
+}
+
+.home-alban-tasalgaa-body p {
+    text-align: justify;
+    color: #7a7785;
+    font-size: 15px;
+    font-weight: 100
+}
+
+.home-alban-tasalgaa-body a {
+    display: block;
+    color: #7a7785;
+    float: left;
+    margin-top: 25px;
+}
+
+.home-alban-tasalgaa-body a > i {
+    font-size: 20px;
+}
+
+.home-geriin-tavilga-header {
+    border-bottom: 2px solid #ffd200;
+    padding-bottom: 20px
+}
+
+.home-geriin-tavilga-header h2 {
+    font-size: 86px;
+    color: #ffd200;
+    text-align: left
+}
+
+.home-geriin-tavilga-body {
+    padding-top: 20px;
+}
+
+.home-geriin-tavilga-body p {
+    text-align: justify;
+    color: #7a7785;
+    font-weight: 100;
+    font-size: 15px
+}
+
+.home-geriin-tavilga-body a {
+    display: block;
+    color: #7a7785;
+    float: left;
+    margin-top: 25px;
+}
+
+.home-geriin-tavilga-body a > i {
+    font-size: 20px;
+}
+
+.home-geriin-tavilga {
+    padding-top: 80px;
+    overflow: hidden
+}
+
+.home-uildver-header {
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 20px;
+    padding-top: 120px;
+}
+
+.home-uildver-header h2 {
+    font-size: 86px;
+    color: #ffffff;
+    text-align: left
+}
+
+.home-uildver-body {
+    padding-top: 20px;
+}
+
+.home-uildver-body p {
+    text-align: justify;
+    color: #7a7785;
+    font-size: 15px;
+    font-weight: 100
+}
+
+.home-uildver-body a {
+    display: block;
+    color: #7a7785;
+    float: left;
+    margin-top: 25px;
+}
+
+.home-uildver-body a > i {
+    font-size: 20px;
+}
+
+.marg-top {
+    margin-top: 70px
+}
+
+.about-us-header {
+    width: 100%;
+    height: 600px;
+    overflow: hidden
+}
+
+.about-us-header img {
+    width: 100%;
+}
+
+.about-us-body {
+    padding: 60px 0;
+}
+
+.aboutus-header {
+    color: #ffd200;
+    border-bottom: 2px solid #ffd200;
+    padding-bottom: 20px;
+    text-align: left
+}
+
+.aboutus-header-p {
+    margin-top: 20px !important;
+    font-size: 18px;
+    text-align: justify;
+    font-weight: 300;
+    color: #000000 !important;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: #000000;
+    padding-top: 25px;
+}
+
 @media screen and (max-width: 768px) {
+    .aboutus-header-p {
+        font-size: 14px;
+    }
+
+    .about-us-body {
+        padding: 20px 0;
+    }
+
+    .about-us-header {
+        height: auto;
+    }
+
+    .marg-top {
+        margin-top: 0;
+    }
+
+    .home-uildver-body p {
+        padding: 0 20px;
+    }
+
+    .home-uildver-header {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .home-uildver-header h2 {
+        font-size: 30px;
+        text-align: center;;
+    }
+
+    .home-uildver-body {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .home-uildver-body a {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .home-geriin-tavilga-body a {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .home-geriin-tavilga-body p {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .home-geriin-tavilga {
+        padding-top: 0;
+    }
+
+    .home-geriin-tavilga-header {
+        width: 100%;
+    }
+
+    .home-geriin-tavilga-header h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .zuragnuud {
+        display: none !important;
+    }
+
+    .home-alban-tasalgaa-body {
+        width: 100%;
+        padding: 20px;
+
+    }
+
+    .home-alban-tasalgaa-body a {
+        width: 100%;
+        padding-bottom: 40px;
+    }
+
+    .home-alban-tasalgaa-body a > i {
+        text-align: center;
+    }
+
+    .home-alban-tasalgaa-header h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .home-alban-tasalgaa-header {
+        width: 100%;
+        padding: 20px;
+    }
+
     #burger-menu {
         position: absolute !important;
         top: 5px;
         right: 10px;
+        margin-top: 10px !important;
     }
 
     #main-menu {
@@ -63,10 +310,12 @@ body {
 
     .navbar .navbar-collapse {
         border: none;
+        margin-top: 40px;
     }
 
     .navbar .navbar-nav li {
         margin-top: 10px;
+
     }
 
 }
@@ -495,6 +744,11 @@ hr {
 }
 
 @media screen and (max-width: 767px) {
+
+    .navbar {
+        min-height: 55px;
+    }
+
     .navbar .navbar-header .navbar-brand {
         padding: 4px 15px;
         width: 105px;
@@ -513,19 +767,19 @@ hr {
     background: #74a534;
 }
 
+.navbar-nav > li > .dropdown-menu {
+    padding-top: 0;
+}
+
 @media screen and (max-width: 767px) {
     .navbar .navbar-collapse {
         background: #ffffff;
     }
-}
 
-.navbar .navbar-nav li {
-    padding: 0 20px;
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+        padding: 0;
 
+    }
 }
 
 .navbar .navbar-nav li a {
@@ -550,6 +804,23 @@ hr {
     .navbar .navbar-nav li a:hover, .navbar .navbar-nav li a:focus {
         color: #202125;
     }
+
+    .navbar .navbar-nav li {
+        padding-left: 20px;
+    }
+}
+
+.subm::before {
+    background: transparent !important;
+}
+
+.navbar .navbar-nav li {
+    padding: 0 20px;
+    position: relative;
+    top: 35%;
+    /*-webkit-transform: translateY(-50%);*/
+    /*transform: translateY(-50%);*/
+
 }
 
 .navbar .navbar-nav li a:hover {
@@ -868,7 +1139,6 @@ body.pushmenu-push-toLeft {
 
 }
 
-
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
@@ -880,15 +1150,13 @@ body.pushmenu-push-toLeft {
 }
 
 @media screen and (max-width: 1024px) {
-    .hidden-class
-    {
+    .hidden-class {
         display: none !important;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .hidden-class
-    {
+    .hidden-class {
         display: block !important;
     }
 }
@@ -898,10 +1166,10 @@ body.pushmenu-push-toLeft {
     position: absolute;
 }
 
-.navbar .navbar-nav
-{
+.navbar .navbar-nav {
     margin-right: 50px;
 }
+
 /* for index5 only end */
 /*navbar styling end */
 

@@ -2,9 +2,49 @@
 {% block style %}
 {% endblock %}
 {% block body %}
-    <div class="container" style="margin-top: 60px">
-        <div style="width: 100%;height: 600px">
-            <h2 style="color: #000000">Албан тасалгаа тавилга</h2>
+    <div class="service-1 mid-level-padding text-center"
+         style="background-color: #ffd200;padding: 0;padding-top: 50px;;overflow: hidden">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-6 wow slideInLeft animated"
+                     style="visibility: visible; animation-name: slideInLeft;">
+                    <div class="outer-bound">
+                        <div class="left-section">
+
+                            <div class="feature">
+                                <div class="row">
+                                    <div class="home-alban-tasalgaa-header">
+                                        <h2>
+                                            АЛБАН ТАСАЛГААНЫ ТАВИЛГА
+                                        </h2>
+                                    </div>
+                                    <div class="home-alban-tasalgaa-body">
+                                        <p>
+                                            АНУН ХХК нь олон улсын чанарын
+                                            стандартад нийцсэн тавилгыг худалдаалдагбөгөөд бидний бүтээгдэхүүнүүд
+                                            дараах шаардлагуудыгхангасан байдаг.
+                                        </p>
+                                        <a href="{{ path('albantasalgaa') }}">
+                                            <i class="fa fa-chevron-circle-down"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-4 zuragnuud">
+                    <div class="right-section wow slideInRight animated"
+                         style="visibility: visible; animation-name: slideInRight;width: 100%">
+                        <img src="{{ asset('resources/web/images/chair.png') }}" class="img-responsive" alt="Сандал">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
