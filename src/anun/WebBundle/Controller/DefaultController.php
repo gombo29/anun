@@ -25,14 +25,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/products", name="products")
-     */
-    public function productsAction()
-    {
-        return $this->render('@anunWeb/Default/products.html.twig', array('menu' => 3));
-    }
-
-    /**
      * @Route("/service", name="service")
      */
     public function serviceAction()
