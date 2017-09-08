@@ -3,15 +3,18 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@anunWebBundle/Resources/config/services.yml" }
+    - { resource: "@anunCmsBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.category_images: /uploads/images/categories
+    app.path.item_images: /uploads/images/items
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.root_dir%/config/routing.yml'
@@ -65,3 +68,76 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        category_images:
+            uri_prefix: '%app.path.category_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/categories'
+        item_images:
+            uri_prefix: '%app.path.item_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/items'
+easy_admin:
+    site_name: 'АНУН CMS'
+    design:
+        brand_color: '#ddb707'
+    entities:
+        Item:
+            class: anun\CmsBundle\Entity\Item
+            label: 'Тавилга'
+            list:
+               title: 'Тавилгын жагсаалт'
+               fields:
+                  - id
+                  - { property: 'name', label: 'Нэр' }
+                  - { property: 'main_img_path', label: 'Зураг', type: 'image', base_path: '%app.path.item_images%'}
+                  - { property: 'href', label: 'Үсрэг URL'}
+                  - { property: 'href_target', label: 'Шинэ таб' }
+                  - { property: 'category', type: 'string' }
+                  - { property: 'publish_at', type: 'datetime' }
+                  - { property: 'expire_at', type: 'datetime' }
+                  - { property: 'created_at', type: 'datetime' }
+                  - { property: 'updated_at', type: 'datetime' }
+            max_results: 50
+            form:
+                title: 'Тавилга нэмэх/засах'
+                fields:
+                    - { property: 'category', type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name'} }
+                    - name
+                    - href
+                    - { property: 'href_target', type: 'checkbox' }
+                    - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image' }
+                    - { property: 'headline', type: 'ckeditor'}
+                    - { property: 'content', type: 'ckeditor'}
+                    - { property: 'publish_at', type: 'datetime'}
+                    - { property: 'expire_at', type: 'datetime'}
+                    - { property: 'images', type: 'collection'}
+        ItemCategory:
+           class: anun\CmsBundle\Entity\ItemCategory
+           max_results: 50
+           label: 'Категори'
+           list:
+               dql_filter: 'entity.parent is not null'
+               title: 'Категорийн жагсаалт'
+               fields:
+                  - id
+                  - { property: 'parent' }
+                  - name
+                  - { property: 'img_path', label: 'Зураг', type: 'image', base_path: '%app.path.category_images%' }
+                  - created_at
+                  - updated_at
+                  - order_num
+                  - { property: 'items', label: 'Тавилгын тоо' }
+           form:
+              title: 'Категори нэмэх/засах'
+              fields:
+                  - name
+                  - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
+                  - { property: descr,  type: 'ckeditor'}
+                  - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
+        ItemGallery:
+            class: anun\CmsBundle\Entity\ItemGallery
+            form:
+                fields:
+                    - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
