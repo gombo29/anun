@@ -5,6 +5,11 @@ namespace anun\WebBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 class DefaultController extends Controller
 {
     /**
@@ -46,6 +51,29 @@ class DefaultController extends Controller
     public function albanTasalgaaAction()
     {
         return $this->render('@anunWeb/Default/alban-tasalgaa.html.twig', array('menu' => 3));
+    }
+
+
+    /**
+     * @Route("/product/{id}", name="product", requirements={"id" = "\d+"} )
+     * @Method({"GET", "POST"})
+     * Зөвлөгөөнүүд
+     *
+     */
+    public function productAction($id)
+    {
+        return $this->render('@anunWeb/Default/product.html.twig', array('menu' => 3, 'id' => $id));
+    }
+
+    /**
+     * @Route("/product-detail/{id}", name="product_detail", requirements={"id" = "\d+"} )
+     * @Method({"GET", "POST"})
+     * Зөвлөгөөнүүд
+     *
+     */
+    public function productDetailAction($id)
+    {
+        return $this->render('@anunWeb/Default/product-detail.html.twig', array('menu' => 3, 'id' => $id));
     }
 
     /**

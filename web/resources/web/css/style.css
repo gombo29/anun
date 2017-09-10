@@ -275,6 +275,7 @@ body {
     .home-alban-tasalgaa-body {
         width: 100%;
         padding: 20px;
+        margin-left: 0;
 
     }
 
@@ -295,6 +296,7 @@ body {
     .home-alban-tasalgaa-header {
         width: 100%;
         padding: 20px;
+        margin-left: 0;
     }
 
     #burger-menu {
@@ -800,6 +802,14 @@ hr {
     color: #ffffff;
 }
 
+.subm::before {
+    background: transparent !important;
+}
+
+.subm {
+    padding: 10px !important;;
+}
+
 @media screen and (max-width: 767px) {
     .navbar .navbar-nav li a:hover, .navbar .navbar-nav li a:focus {
         color: #202125;
@@ -808,10 +818,10 @@ hr {
     .navbar .navbar-nav li {
         padding-left: 20px;
     }
-}
 
-.subm::before {
-    background: transparent !important;
+    .subm {
+        padding: 0 !important;
+    }
 }
 
 .navbar .navbar-nav li {
