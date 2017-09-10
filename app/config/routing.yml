@@ -3,8 +3,16 @@ easy_admin_bundle:
     type:     annotation
     prefix:   /admin
 
+easy_cms_bundle:
+    resource: "@anunCmsBundle/Controller/"
+    type:     annotation
+    prefix:   /cms
+
 anun_web:
     resource: "@anunWebBundle/Controller/"
     type:     annotation
     prefix:   /
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
 

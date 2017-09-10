@@ -78,10 +78,46 @@ vich_uploader:
         item_images:
             uri_prefix: '%app.path.item_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/items'
+
+ivory_ck_editor:
+    input_sync: true
+    default_config: default
+    configs:
+        default:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
+
+fm_elfinder:
+#    assets_path: /uploads # default is /assets, this is where css/js elfinder files are
+    instances:
+        default:
+            locale: %locale% # defaults to current request locale
+            editor: ckeditor # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
+            #editor_template: custom template for your editor # default null
+            #path_prefix: / # for setting custom assets path prefix, useful for non vhost configurations, i.e. http://127.0.0.1/mysite/
+            #fullscreen: true|false # default is true, applies to simple and ckeditor editors
+            #theme: smoothness # jquery theme, default is 'smoothness'
+            include_assets: true # disable if you want to manage loading of javascript and css assets manually
+            #visible_mime_types: ['image/png', 'image/jpg', 'image/jpeg'] # only show these mime types, defaults to show all
+            connector:
+                debug: true # defaults to false
+                roots:       # at least one root must be defined, defines root filemanager directories
+                    uploads:
+                        #show_hidden: true|false # defaults to false, hides dotfiles
+                        driver: LocalFileSystem
+                        path: uploads
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M # also file upload sizes restricted in php.ini
+
 easy_admin:
     site_name: 'АНУН CMS'
     design:
         brand_color: '#ddb707'
+    formats:
+        date:     'Y/m/d'
+        time:     'H:i'
+        datetime: 'Y/m/d H:i:s'
     entities:
         Item:
             class: anun\CmsBundle\Entity\Item
@@ -90,15 +126,16 @@ easy_admin:
                title: 'Тавилгын жагсаалт'
                fields:
                   - id
+                  - { property: 'category' }
                   - { property: 'name', label: 'Нэр' }
                   - { property: 'main_img_path', label: 'Зураг', type: 'image', base_path: '%app.path.item_images%'}
                   - { property: 'href', label: 'Үсрэг URL'}
                   - { property: 'href_target', label: 'Шинэ таб' }
-                  - { property: 'category', type: 'string' }
                   - { property: 'publish_at', type: 'datetime' }
                   - { property: 'expire_at', type: 'datetime' }
                   - { property: 'created_at', type: 'datetime' }
                   - { property: 'updated_at', type: 'datetime' }
+                  - order_num
             max_results: 50
             form:
                 title: 'Тавилга нэмэх/засах'
@@ -109,24 +146,26 @@ easy_admin:
                     - { property: 'href_target', type: 'checkbox' }
                     - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image' }
                     - { property: 'headline', type: 'ckeditor'}
-                    - { property: 'content', type: 'ckeditor'}
+                    - { property: 'content', type: 'ckeditor' }
                     - { property: 'publish_at', type: 'datetime'}
                     - { property: 'expire_at', type: 'datetime'}
-                    - { property: 'images', type: 'collection'}
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false}}
+                    - { property: 'order_num', type: 'integer' }
         ItemCategory:
            class: anun\CmsBundle\Entity\ItemCategory
            max_results: 50
            label: 'Категори'
            list:
                dql_filter: 'entity.parent is not null'
+               sort: 'orderNum'
                title: 'Категорийн жагсаалт'
                fields:
                   - id
                   - { property: 'parent' }
                   - name
                   - { property: 'img_path', label: 'Зураг', type: 'image', base_path: '%app.path.category_images%' }
-                  - created_at
-                  - updated_at
+                  - { property: 'created_at', type: 'datetime' }
+                  - { property: 'updated_at', type: 'datetime' }
                   - order_num
                   - { property: 'items', label: 'Тавилгын тоо' }
            form:
@@ -136,8 +175,17 @@ easy_admin:
                   - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
                   - { property: descr,  type: 'ckeditor'}
                   - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
+                  - { property: order_num, type: 'integer' }
         ItemGallery:
             class: anun\CmsBundle\Entity\ItemGallery
+            list:
+                title: 'Зургийн сан'
+                fields:
+                    - id
+                    - { property: 'img_path', label: 'Зураг', type: 'image', base_path: '%app.path.item_images%' }
+                    - { property: 'created_at', type: 'datetime'}
+                    - order_num
+                    - size
             form:
                 fields:
                     - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }

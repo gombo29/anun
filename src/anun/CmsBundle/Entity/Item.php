@@ -4,12 +4,14 @@ namespace anun\CmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use tsetsee\Annotation\OrderIndexer;
+use tsetsee\Annotation\OrderIndexerProperty;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Item
  * @Vich\Uploadable()
- *
+ * @OrderIndexer()
  * @ORM\Table(name="item")
  * @ORM\Entity(repositoryClass="anun\CmsBundle\Repository\ItemRepository")
  * @ORM\HasLifecycleCallbacks()
@@ -102,7 +104,7 @@ class Item
     private $expireAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="ItemGallery", mappedBy="item")
+     * @ORM\OneToMany(targetEntity="ItemGallery", mappedBy="item", cascade={"persist"})
      */
     private $images;
 
@@ -112,6 +114,12 @@ class Item
      */
     private $category;
 
+    /**
+     * @var integer
+     * @OrderIndexerProperty()
+     * @ORM\Column(name="order_num", type="integer", nullable=true)
+     */
+    private $orderNum;
 
     /**
      * @ORM\PrePersist()
@@ -414,6 +422,7 @@ class Item
      */
     public function addImage(\anun\CmsBundle\Entity\ItemGallery $image)
     {
+        $image->setItem($this);
         $this->images[] = $image;
 
         return $this;
@@ -461,5 +470,29 @@ class Item
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set orderNum
+     *
+     * @param integer $orderNum
+     *
+     * @return Item
+     */
+    public function setOrderNum($orderNum)
+    {
+        $this->orderNum = $orderNum;
+
+        return $this;
+    }
+
+    /**
+     * Get orderNum
+     *
+     * @return integer
+     */
+    public function getOrderNum()
+    {
+        return $this->orderNum;
     }
 }

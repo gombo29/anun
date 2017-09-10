@@ -2,13 +2,15 @@
 
 namespace anun\CmsBundle\Controller;
 
+use anun\CmsBundle\Entity\Item;
+use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/hahaha")
      */
     public function indexAction()
     {

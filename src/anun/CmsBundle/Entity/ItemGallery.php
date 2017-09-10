@@ -301,4 +301,11 @@ class ItemGallery
         $this->updatedAt = new \DateTime('now');
     }
 
+    /**
+     * @return string
+     */
+    public function getSize() {
+        return $this->width . 'x' . $this->height;
+    }
+
 }

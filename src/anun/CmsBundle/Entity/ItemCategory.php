@@ -4,12 +4,15 @@ namespace anun\CmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use tsetsee\Annotation\OrderIndexer;
+use tsetsee\Annotation\OrderIndexerProperty;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * ItemCategory
  *
  * @Vich\Uploadable
+ * @OrderIndexer()
  *
  * @ORM\Table(name="item_category")
  * @ORM\Entity(repositoryClass="anun\CmsBundle\Repository\ItemCategoryRepository")
@@ -80,7 +83,7 @@ class ItemCategory
 
     /**
      * @var int
-     *
+     * @OrderIndexerProperty()
      * @ORM\Column(name="order_num", type="integer", nullable=true)
      */
     private $orderNum;
@@ -378,5 +381,10 @@ class ItemCategory
         if($imgFile) {
             $this->updatedAt = new \DateTime('now');
         }
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

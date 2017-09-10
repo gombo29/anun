@@ -7,3 +7,14 @@ services:
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+
+    anun.cms_bundle.upload_image_listener:
+        class: anun\CmsBundle\EventListener\UploadImageListener
+        tags:
+            - { name: kernel.event_listener, event: vich_uploader.post_upload }
+
+    anun.cms_bundle.order_indexer:
+        class: anun\CmsBundle\EventListener\OrderIndexer
+        arguments: ["@annotations.reader"]
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
