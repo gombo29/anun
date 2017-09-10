@@ -17,6 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+
         return $this->render('@anunWeb/Default/index.html.twig', array('menu' => 1));
     }
 
