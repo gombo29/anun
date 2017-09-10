@@ -2,6 +2,7 @@
 
 namespace anun\WebBundle\Controller;
 
+use anun\CmsBundle\Entity\ItemCategory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -47,11 +48,35 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/alban-tasalgaa", name="albantasalgaa")
+     * @Route("/alban-tasalgaa/{page}", name="albantasalgaa", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function albanTasalgaaAction()
+    public function albanTasalgaaAction($page)
     {
-        return $this->render('@anunWeb/Default/alban-tasalgaa.html.twig', array('menu' => 3));
+
+        $pagesize = 20;
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var ItemCategory[] $ger */
+        $alba = $qb
+            ->where('n.parent = 2')
+            ->orderBy('n.id', 'desc')
+            ->setFirstResult(($page - 1) * $pagesize)
+            ->setMaxResults($pagesize)
+            ->getQuery()
+            ->getArrayResult();
+
+        return $this->render('@anunWeb/Default/alban-tasalgaa.html.twig', array(
+
+            'menu' => 3,
+            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
+            'count' => $count,
+            'page' => $page,
+            'alba' => $alba,
+
+        ));
     }
 
 
@@ -78,11 +103,34 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/ger", name="ger")
+     * @Route("/ger/{page}", name="ger", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function gerAction()
+    public function gerAction($page)
     {
-        return $this->render('@anunWeb/Default/ger.html.twig', array('menu' => 3));
+
+        $pagesize = 20;
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var ItemCategory[] $ger */
+        $ger = $qb
+            ->where('n.parent = 1')
+            ->orderBy('n.id', 'desc')
+            ->setFirstResult(($page - 1) * $pagesize)
+            ->setMaxResults($pagesize)
+            ->getQuery()
+            ->getArrayResult();
+
+
+        return $this->render('@anunWeb/Default/ger.html.twig', array(
+            'menu' => 3,
+            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
+            'count' => $count,
+            'page' => $page,
+            'ger' => $ger,
+        ));
     }
 
 

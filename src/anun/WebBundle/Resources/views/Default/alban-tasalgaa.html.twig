@@ -85,117 +85,22 @@
                                 <h2>ШИНЭЛЭГ ЗАГВАРУУД</h2>
                             </div>
 
-                            <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg2.jpg') }}" alt="work">
+                            {% for g in alba %}
+                                <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
+                                    <div class="wrap-col">
+                                        <div class="item-container">
+                                            <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
+                                                <div class="overlay-inner">
+                                                    <h4 class="base">{{ g.name }}</h4>
+                                                    <div class="line"></div>
+                                                    <p>{{ g.descr }}</p>
+                                                </div>
+                                            </a>
+                                            <img src="/uploads/images/categories/{{ g.imgPath }}" alt="work">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-1-4 mix work-item design" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg4.jpg') }}" alt="work"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg3.jpg') }}" alt="work">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-1-4 mix work-item design" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg2.jpg') }}" alt="work"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg2.jpg') }}" alt="work">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-1-4 mix work-item design" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg2.jpg') }}" alt="work"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg3.jpg') }}" alt="work">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-1-4 mix work-item design" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">Asem Villa</h4>
-                                                <div class="line"></div>
-                                                <p>Showroom</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ asset('resources/web/images/workimg1.jpg') }}" alt="work"></div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
