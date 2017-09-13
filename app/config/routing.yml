@@ -1,12 +1,16 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix: /
+
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
     prefix:   /admin
 
-easy_cms_bundle:
-    resource: "@anunCmsBundle/Controller/"
-    type:     annotation
-    prefix:   /cms
+#easy_cms_bundle:
+#    resource: "@anunCmsBundle/Controller/"
+#    type:     annotation
+#    prefix:   /cms
 
 anun_web:
     resource: "@anunWebBundle/Controller/"
@@ -14,5 +18,6 @@ anun_web:
     prefix:   /
 
 elfinder:
-     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+    resource: "@FMElfinderBundle/Resources/config/routing.yml"
+
 
