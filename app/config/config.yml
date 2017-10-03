@@ -148,7 +148,7 @@ easy_admin:
                   - { property: 'category' }
                   - { property: 'name', label: 'Нэр' }
                   - { property: 'main_img_path', label: 'Зураг', type: 'image', base_path: '%app.path.item_images%'}
-                  - { property: 'href', label: 'Үсрэг URL'}
+                  - { property: 'href', label: 'Үсрэх URL'}
                   - { property: 'href_target', label: 'Шинэ таб' }
                   - { property: 'publish_at', type: 'datetime' }
                   - { property: 'expire_at', type: 'datetime' }
