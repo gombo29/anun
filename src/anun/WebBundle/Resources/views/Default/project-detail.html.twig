@@ -1,0 +1,203 @@
+{% extends '@anunWeb/Layout/base.html.twig' %}
+{% block style %}
+    <style>
+        .item-container:hover .overlay {
+            opacity: 0;
+        }
+
+        .detail-header {
+            margin-top: 20px
+        }
+
+        @media only screen and (max-width: 767px) {
+            .detail-header {
+                margin-top: 100px
+            }
+        }
+
+        .content-detail-main img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .content-detail .desc .desc-content span {
+            color: #000;
+            width: 30%;
+            font-size: 14px;
+            float: left;
+        }
+
+        .content-detail .desc {
+            width: 323px;
+            text-align: left;
+        }
+        .content-detail .desc {
+            position: absolute;
+            width: 360px;
+        }
+
+        .content-detail .desc .desc-content {
+            display: block;
+            display: inline-block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 100%;
+            border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-detail .desc .desc-content span {
+            color: #000;
+            width: 30%;
+            font-size: 14px;
+            float: left;
+        }
+
+        .content-detail .desc .desc-content h4 {
+            font-size: 14px;
+            margin: 0px;
+            padding-left: 35%;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .share {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
+        .share a {
+            display: inline-block;
+            margin-right: 10px;
+            border: solid 1px rgba(0, 0, 0, 0.3);
+            color: rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+            -webkit-transition: all 0.6s ease-out;
+            -moz-transition: all 0.6s ease-out;
+            -ms-transition: all 0.6s ease-out;
+            -o-transition: all 0.6s ease-out;
+            transition: all 0.6s ease-out;
+        }
+
+        .share a:hover {
+            text-decoration: none;
+            border: solid 1px rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+    </style>
+{% endblock %}
+{% block body %}
+    <div id="about-us">
+        <div class="about-us-2 about-us-body  text-center">
+            <div class="container">
+
+                <div class="row wrap-content" style="background-color: #ffffff;">
+
+                    <div class="col-xs-12  wow bounceIn detail-header" style="padding-left: 0">
+
+
+                        <div style="background-color: #fff;text-align: left">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ path('home') }}">Нүүр хуудас</a></li>
+                                <li class="breadcrumb-item"><a href="{{ path('projects') }}">Манай төслүүд</a></li>
+                                <li class="breadcrumb-item active">Жишээ дэлгэрэнгүй хуудас</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div style="background-color: #fff;padding-bottom: 30px;text-align: left">
+                        <h2></h2>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="content-detail-main"><img class="alignleft size-large wp-image-1609"
+                                src="http://render.mn/wp-content/uploads/2017/06/IMG_0891-683x1024.jpg" alt="IMG_0891"
+                                width="683" height="1024" style="width: 100%;margin-bottom: ">
+                            <img class="alignleft size-large wp-image-1610"
+                                 src="http://render.mn/wp-content/uploads/2017/06/IMG_0911-1024x683.jpg"
+                                 alt="IMG_0911" width="1024" height="683"> <img
+                                    class="alignleft size-large wp-image-1611"
+                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0918-683x1024.jpg"
+                                    alt="IMG_0918" width="683" height="1024"> <img
+                                    class="alignleft size-large wp-image-1612"
+                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0923-1024x683.jpg"
+                                    alt="IMG_0923" width="1024" height="683"> <img
+                                    class="alignleft size-large wp-image-1613"
+                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0936-1024x683.jpg"
+                                    alt="IMG_0936" width="1024" height="683"> <img
+                                    class="alignleft size-large wp-image-1614"
+                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0962-683x1024.jpg"
+                                    alt="IMG_0962" width="683" height="1024"> <img
+                                    class="alignleft size-large wp-image-1615"
+                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0968-683x1024.jpg"
+                                    alt="IMG_0968" width="683" height="1024"></p>
+                    </div>
+
+
+                    <div class="col-md-4 content-detail">
+
+
+                            <div class="desc">
+                                <div class="desc-content">
+                                    <span>Захиалагч</span>
+                                    <h4>
+                                        Гангар инвест ХХК					</h4>
+                                </div>
+                                <div class="desc-content">
+                                    <span>Хэмжээ </span>
+                                    <h4></h4>
+                                </div>
+                                <div class="desc-content">
+                                    <span>Гүйцэтгэсэн он </span>
+                                    <h4>
+                                        <a href="http://render.mn/on/2017/">2017</a>					</h4>
+                                </div>
+                                <div class="desc-content">
+                                    <span>Бүтээгдэхүүн </span>
+                                    <h4>
+                                        <a href="http://render.mn/category/interier-design/">Интерьер дизайн, гүйцэтгэл</a>					</h4>
+                                </div>
+                                <div class="desc-content">
+                                    <span>Байршил</span>
+                                    <h4>Сүхбаатар дүүрэг</h4>
+                                </div>
+                                <div class="share">
+                                    <a href="http://www.facebook.com/share.php?u=layout=button" class="fb"><i class="fa fa-facebook"></i> Share</a>
+                                    <a href="https://twitter.com/share" data-via="http://render.mn/ub-central-residence/" class="tw"> Tweet</a>
+                                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                                    <a href="https://plus.google.com/share?url={http://render.mn/ub-central-residence/}" onclick="javascript:window.open(this.href,
+  '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gp"><i class="fa fa-google-plus"></i> Plus</a>
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="{{ asset('resources/web/js/swiper.min.js') }}"></script>
+
+    <script>
+        var galleryTop = new Swiper('.gallery-top', {
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 10,
+        });
+        var galleryThumbs = new Swiper('.gallery-thumbs', {
+            spaceBetween: 10,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            touchRatio: 0.2,
+            slideToClickedSlide: true
+        });
+        galleryTop.params.control = galleryThumbs;
+        galleryThumbs.params.control = galleryTop;
+
+    </script>
+{% endblock %}

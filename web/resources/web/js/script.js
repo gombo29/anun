@@ -7,7 +7,7 @@ $(window).on("load", function () {
 var count = 0;
 $('#burger-menu').hover(function () {
     count = count + 1;
-    if (count % 2 == 0) {
+    if (count % 2 != 0) {
         show();
     }
 });
@@ -21,7 +21,7 @@ function show() {
 function hide() {
     $('#burger-menu').removeClass('open');
     $('#main-menu').hide();
-    count = 0;
+    count = 1;
 }
 
 $(window).scroll(function () {
@@ -40,7 +40,12 @@ $(window).scroll(function () {
         $('#homesick4').css('color', '#000000');
         $('#homesick5').css('color', '#000000');
         $('#homesick6').css('color', '#000000');
+
+        $('#homesick10').css('color', '#000000');
+        $('#homesick11').css('color', '#000000');
+        $('#homesick12').css('color', '#000000');
         $('#homesick9').css('background-color', '#FFFFFF');
+
         $('#logo').attr('src', '/resources/web/images/logo-green-dark.png');
 
 
@@ -57,6 +62,11 @@ $(window).scroll(function () {
         $('#homesick4').css('color', '#FFFFFF');
         $('#homesick5').css('color', '#FFFFFF');
         $('#homesick6').css('color', '#FFFFFF');
+
+        $('#homesick10').css('color', '#FFFFFF');
+        $('#homesick11').css('color', '#FFFFFF');
+        $('#homesick12').css('color', '#FFFFFF');
+
         $('#homesick9').css('background-color', '#000000');
         $('#logo').attr('src', '/resources/web/images/logo-green-white.png');
     }

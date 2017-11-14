@@ -45,7 +45,7 @@ class DefaultController extends Controller
      */
     public function serviceAction()
     {
-        return $this->render('@anunWeb/Default/service.html.twig', array('menu' => 4));
+        return $this->render('@anunWeb/Default/service.html.twig', array('menu' => 3));
     }
 
     /**
@@ -229,6 +229,31 @@ class DefaultController extends Controller
     public function uildverAction()
     {
         return $this->render('@anunWeb/Default/uildver.html.twig', array('menu' => 3));
+    }
+
+
+    /**
+     * @Route("/projects", name="projects")
+     */
+    public function projectsAction()
+    {
+        return $this->render('@anunWeb/Default/projects.html.twig', array('menu' => 4));
+    }
+
+    /**
+     * @Route("/projects-detail", name="projectsDeatail")
+     */
+    public function projectsDetailAction()
+    {
+        return $this->render('@anunWeb/Default/project-detail.html.twig', array('menu' => 4));
+    }
+
+    /**
+     * @Route("/clearance", name="clearance")
+     */
+    public function clearanceAction()
+    {
+        return $this->render('@anunWeb/Default/clearance.html.twig', array('menu' => 3));
     }
 
 }
