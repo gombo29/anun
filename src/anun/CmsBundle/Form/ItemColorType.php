@@ -14,7 +14,11 @@ class ItemColorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('color', new ColorPickerType());
+        $builder->add('color', new ColorPickerType(), array(
+            'attr' => array(
+                'onclick' => 'new jscolor(this)'
+            ),
+        ));
     }
     
     /**
