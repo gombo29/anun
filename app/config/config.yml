@@ -182,6 +182,7 @@ easy_admin:
                   - id
                   - { property: 'parent' }
                   - name
+                  - { property: 'uildverlel', label: 'Үйлдвэрлэл'}
                   - { property: 'img_path', label: 'Зураг', type: 'image', base_path: '%app.path.category_images%' }
                   - { property: 'created_at', type: 'datetime' }
                   - { property: 'updated_at', type: 'datetime' }
@@ -193,6 +194,7 @@ easy_admin:
                   - name
                   - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
                   - { property: descr,  type: 'ckeditor'}
+                  - { property: 'uildverlel', label: 'Үйлдвэрлэл', type: "checkbox"}
                   - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
                   - { property: order_num, type: 'integer' }
         ItemGallery:
