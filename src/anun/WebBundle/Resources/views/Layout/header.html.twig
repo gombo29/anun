@@ -1,35 +1,38 @@
-<nav class="navbar navbar-fixed-top green">
+<nav class="navbar navbar-fixed-top green" id="navbar">
     <div class="container-fluid">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ path('home') }}"><img
-                            src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo"></a>
+                            src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo" id="logo"></a>
             </div>
             <div class="right">
                 <div id="burger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span id="sp1"></span>
+                    <span id="sp2"></span>
+                    <span id="sp3"></span>
                 </div>
             </div>
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right" id="main-menu" style="display: none">
-                    <li {% if menu == 1 %}class="active"{% endif %}><a href="{{ path("home") }}">НҮҮР ХУУДАС</a></li>
-                    <li {% if menu == 2 %}class="active"{% endif %}><a href="{{ path("aboutus") }}">БИДНИЙ ТУХАЙ </a>
+                    <li {% if menu == 1 %}class="active"{% endif %}><a href="{{ path("home") }}" id="homesick">НҮҮР ХУУДАС</a></li>
+                    <li {% if menu == 2 %}class="active"{% endif %}><a href="{{ path("aboutus") }}" id="homesick1">БИДНИЙ ТУХАЙ </a>
                     </li>
                     <li class="{% if menu == 3 %}active {% endif %} dropdown" ><a  class="dropdown-toggle"
                                                                                    data-toggle="dropdown"
-                                                                                   href="#">БҮТЭЭГДЭХҮҮН  <b class="caret"></b></a>
+                                                                                   href="#" id="homesick2">БҮТЭЭГДЭХҮҮН  <b class="caret"></b></a>
 
-                        <ul class="nav dropdown-menu">
-                            <li><a href="{{ path('ger') }}" class="subm">ГЭРИЙН ТАВИЛГА </a></li>
-                            <li><a href="{{ path('albantasalgaa') }}"class="subm">АЛБАН ТАСАЛГААНЫ ТАВИЛГА </a></li>
+                        <ul class="nav dropdown-menu" id="homesick9">
+                            <li><a href="{{ path('ger') }}" class="subm" id="homesick3">ГЭРИЙН ТАВИЛГА </a></li>
+                            <li><a href="{{ path('albantasalgaa') }}" class="subm" id="homesick4">АЛБАН ТАСАЛГААНЫ ТАВИЛГА </a></li>
+                            <li><a href="" class="subm" id="homesick4">ҮЙЛДВЭРЛЭЛ </a></li>
+                            <li><a href="" class="subm" id="homesick4">ҮЙЛЧИЛГЭЭ </a></li>
+                            <li><a href="" class="subm" id="homesick4">CLEARANCE </a></li>
                         </ul>
                     </li>
                     <li class="hidden-class {% if menu == 4 %}active{% endif %}"><a href="{{ path('service') }}"
-                                                                                    class="scroll">ҮЙЛЧИЛГЭЭ</a></li>
-                    <li class="hidden-class {% if menu == 5 %}active{% endif %}"><a href="{{ path('contactus') }}" class="scroll">ХОЛБОО
+                                                                                    class="scroll" id="homesick5">МАНАЙ ТӨСЛҮҮД</a></li>
+                    <li class="hidden-class {% if menu == 5 %}active{% endif %}"><a href="{{ path('contactus') }}" class="scroll" id="homesick6">ХОЛБОО
                             БАРИХ</a></li>
                 </ul>
             </div>
@@ -37,3 +40,4 @@
         </div>
     </div>
 </nav>
+

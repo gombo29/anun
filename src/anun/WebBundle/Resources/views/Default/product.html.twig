@@ -37,27 +37,27 @@
                                 <div style="background-color: #fff;text-align: left">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="{{ path('home') }}">Нүүр хуудас</a></li>
-                                        <li class="breadcrumb-item"><a href="{{ path('ger') }}">Гэрийн тавилга</a></li>
-                                        <li class="breadcrumb-item active">Ширээ</li>
+                                        <li class="breadcrumb-item"><a href="{{ path('ger') }}">{{ paren1name }}</a></li>
+                                        <li class="breadcrumb-item active">{{ paren2name }}</li>
                                     </ol>
                                 </div>
                             </div>
                             <div style="background-color: #fff;padding-bottom: 30px;text-align: left">
                                 <h2> </h2>
                             </div>
-                            {% for i in 1..24 %}
+                            {% for i in alba %}
                                 <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                                     <div class="wrap-col">
                                         <div class="item-container">
                                             <a class="fancybox overlay text-center"
-                                               href="{{ path('product_detail' , {'id' : 1}) }}">
+                                               href="{{ path('product_detail' , {'id' : i.id}) }}">
                                                 <div class="overlay-inner">
-                                                    <h4 class="base">Asem Villa</h4>
+                                                    <h4 class="base">{{ i.name }}</h4>
                                                     <div class="line"></div>
-                                                    <p>Showroom</p>
+                                                    <p>{{ i.headLine|raw }}</p>
                                                 </div>
                                             </a>
-                                            <img src="{{ asset('resources/web/images/workimg2.jpg') }}" alt="work">
+                                            <img src="{{ image_path_item }}/{{ i.mainImgPath }}" alt="work">
                                         </div>
                                     </div>
                                 </div>

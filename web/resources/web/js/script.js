@@ -3,16 +3,70 @@ $(window).on("load", function () {
     $(".loader").fadeOut(800);
 });
 
-$('#burger-menu').click(function () {
-    $(this).toggleClass('open');
-    $('#main-menu').toggle();
+
+var count = 0;
+$('#burger-menu').hover(function () {
+    count = count + 1;
+    if (count % 2 == 0) {
+        show();
+    }
+});
+
+
+function show() {
+    $('#burger-menu').addClass('open').attr('onclick', 'hide()');
+    $('#main-menu').show();
+}
+
+function hide() {
+    $('#burger-menu').removeClass('open');
+    $('#main-menu').hide();
+    count = 0;
+}
+
+$(window).scroll(function () {
+    var st = $(window).scrollTop();
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > 50) {
+        $('#navbar').css('background-color', '#FFFFFF');
+        $('#sp1').css('background-color', '#000000');
+        $('#sp2').css('background-color', '#000000');
+        $('#sp3').css('background-color', '#000000');
+        $('#homesick').css('color', '#000000');
+        $('#homesick1').css('color', '#000000');
+        $('#homesick2').css('color', '#000000');
+        $('#homesick3').css('color', '#000000');
+        $('#homesick4').css('color', '#000000');
+        $('#homesick5').css('color', '#000000');
+        $('#homesick6').css('color', '#000000');
+        $('#homesick9').css('background-color', '#FFFFFF');
+        $('#logo').attr('src', '/resources/web/images/logo-green-dark.png');
+
+
+    } else {
+        $('#navbar').css('background-color', '#141414');
+        $('#sp1').css('background-color', '#FFFFFF');
+        $('#sp2').css('background-color', '#FFFFFF');
+        $('#sp3').css('background-color', '#FFFFFF');
+
+        $('#homesick').css('color', '#FFFFFF');
+        $('#homesick1').css('color', '#FFFFFF');
+        $('#homesick2').css('color', '#FFFFFF');
+        $('#homesick3').css('color', '#FFFFFF');
+        $('#homesick4').css('color', '#FFFFFF');
+        $('#homesick5').css('color', '#FFFFFF');
+        $('#homesick6').css('color', '#FFFFFF');
+        $('#homesick9').css('background-color', '#000000');
+        $('#logo').attr('src', '/resources/web/images/logo-green-white.png');
+    }
+
 
 });
 
+
 jQuery(function ($) {
     "use strict";
-
-
 
 
     if ($(window).width() > 767) {

@@ -11,6 +11,8 @@ parameters:
     locale: en
     app.path.category_images: /uploads/images/categories
     app.path.item_images: /uploads/images/items
+    image_path_item: /uploads/images/items
+    image_path_category: /uploads/images/categories
 
 framework:
     #esi: ~
@@ -38,6 +40,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+          image_path_item: /uploads/images/items
+          image_path_category: /uploads/images/categories
 
 # Doctrine Configuration
 doctrine:
@@ -163,12 +168,12 @@ easy_admin:
                     - name
                     - href
                     - { property: 'href_target', type: 'checkbox' }
-                    - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image' }
+                    - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image',, type_options: { required: false }  }
                     - { property: 'headline', type: 'ckeditor'}
                     - { property: 'content', type: 'ckeditor' }
                     - { property: 'publish_at', type: 'datetime'}
                     - { property: 'expire_at', type: 'datetime'}
-                    - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false}}
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false,required: false } }
                     - { property: 'order_num', type: 'integer' }
         ItemCategory:
            class: anun\CmsBundle\Entity\ItemCategory
@@ -191,9 +196,9 @@ easy_admin:
               title: 'Категори нэмэх/засах'
               fields:
                   - name
-                  - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
+                  - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true }}
                   - { property: descr,  type: 'ckeditor'}
-                  - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
+                  - { property: 'imgFile', label: 'Зураг', type: 'vich_image' ,type_options: { required: false }  }
                   - { property: order_num, type: 'integer' }
         ItemGallery:
             class: anun\CmsBundle\Entity\ItemGallery

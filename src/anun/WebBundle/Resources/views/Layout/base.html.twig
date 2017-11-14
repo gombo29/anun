@@ -28,8 +28,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-{% block js %}
-{% endblock %}
 
 <script src="{{ asset('resources/web/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('resources/web/js/owl.carousel.min.js') }}"></script>
@@ -41,6 +39,10 @@
 <script src="{{ asset('resources/web/js/swiper.min.js') }}"></script>
 <script src="{{ asset('resources/web/js/jquery.appear.js') }}"></script>
 <script src="{{ asset('resources/web/js/parallax.min.js') }}"></script>
-<script src="{{ asset('resources/web/js/script.js') }}"></script>
+<script src="{{ asset('resources/web/js/script.js') }}?a"></script>
+
+
+{% block js %}
+{% endblock %}
 </body>
 </html>

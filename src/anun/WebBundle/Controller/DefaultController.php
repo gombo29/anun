@@ -22,6 +22,16 @@ class DefaultController extends Controller
         return $this->render('@anunWeb/Default/index.html.twig', array('menu' => 1));
     }
 
+
+    /**
+     * @Route("/home2", name="home2")
+     */
+    public function index2Action()
+    {
+
+        return $this->render('@anunWeb/Default/index2.html.twig', array('menu' => 1));
+    }
+
     /**
      * @Route("/aboutus", name="aboutus")
      */
@@ -81,14 +91,57 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/product/{id}", name="product", requirements={"id" = "\d+"} )
+     * @Route("/product/{id}/{page}", name="product", requirements={"id" = "\d+", "page" = "\d+"}, defaults={"page" = 1} )
      * @Method({"GET", "POST"})
      * Зөвлөгөөнүүд
      *
      */
-    public function productAction($id)
+    public function productAction($id, $page)
     {
-        return $this->render('@anunWeb/Default/product.html.twig', array('menu' => 3, 'id' => $id));
+
+        $pagesize = 20;
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
+
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var ItemCategory[] $ger */
+        $alba = $qb
+            ->leftJoin('n.category', 'c')
+            ->addSelect('c')
+            ->leftJoin('c.parent', 'p')
+            ->addSelect('p')
+            ->where('n.category = :id')
+            ->setParameter('id', $id)
+            ->orderBy('n.id', 'desc')
+            ->setFirstResult(($page - 1) * $pagesize)
+            ->setMaxResults($pagesize)
+            ->getQuery()
+            ->getArrayResult();
+
+        $paren1name = '-';
+        $paren2name = '-';
+
+        if ($alba) {
+            foreach ($alba as $key => $item) {
+                if ($key == 0) {
+                    $paren1name = $item['category']['parent']['name'];
+                    $paren2name = $item['category']['name'];
+                } else {
+                    break;
+                }
+            }
+        }
+        return $this->render('@anunWeb/Default/product.html.twig', array(
+            'menu' => 3,
+            'id' => $id,
+            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
+            'count' => $count,
+            'page' => $page,
+            'alba' => $alba,
+            'paren1name' => $paren1name,
+            'paren2name' => $paren2name,
+        ));
     }
 
     /**
@@ -99,7 +152,43 @@ class DefaultController extends Controller
      */
     public function productDetailAction($id)
     {
-        return $this->render('@anunWeb/Default/product-detail.html.twig', array('menu' => 3, 'id' => $id));
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
+
+        /**@var ItemCategory[] $ger */
+        $alba = $qb
+            ->leftJoin('n.category', 'c')
+            ->addSelect('c')
+            ->leftJoin('c.parent', 'p')
+            ->addSelect('p')
+            ->leftJoin('n.images', 'i')
+            ->addSelect('i')
+            ->where('n.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getArrayResult();
+
+        $paren1name = '-';
+        $paren1id = 0;
+        $paren2name = '-';
+        $paren2id = 0;
+        $name = '-';
+
+        if ($alba) {
+            foreach ($alba as $key => $item) {
+                if ($key == 0) {
+                    $paren1name = $item['category']['parent']['name'];
+                    $paren1id = $item['category']['parent']['id'];
+                    $paren2name = $item['category']['name'];
+                    $paren2id = $item['category']['id'];
+                    $name = $item['name'];
+                } else {
+                    break;
+                }
+            }
+        }
+        return $this->render('@anunWeb/Default/product-detail.html.twig', array('menu' => 3, 'id' => $id, 'alba' => $alba, 'paren1name' => $paren1name,
+            'paren2name' => $paren2name, 'paren1id' => $paren1id, 'paren2id' => $paren2id, 'name' => $name));
     }
 
     /**

@@ -2,8 +2,7 @@
 {% block style %}
     <style>
         @media screen and (max-width: 768px) {
-            .parallax-slider
-            {
+            .parallax-slider {
                 display: none;
             }
         }
@@ -23,7 +22,7 @@
     </div>
 
 
-    <div class="about-us-2 big-padding text-center">
+    <div class="about-us-2 big-padding text-center" style="height: 100vh;padding: 300px 0">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12  wow bounceIn">
@@ -44,7 +43,7 @@
     <!-- sandal -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #ffd200;padding: 0;padding-top: 50px;;overflow: hidden">
+         style="background-color: #ffd200;;overflow: hidden;height: 100vh;padding: 230px 0">
         <div class="container">
 
             <div class="row">
@@ -57,7 +56,7 @@
                                 <div class="row">
                                     <div class="home-alban-tasalgaa-header">
                                         <h2>
-                                            АЛБАН ТАСАЛГААНЫ ТАВИЛГА
+                                            <a href="{{ path('albantasalgaa') }}">АЛБАН ТАСАЛГААНЫ ТАВИЛГА</a>
                                         </h2>
                                     </div>
                                     <div class="home-alban-tasalgaa-body">
@@ -92,7 +91,7 @@
     <!-- buidan -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #141414;padding: 0;padding-bottom: 50px;padding-top: 50px">
+         style="background-color: #141414; height: 100vh;">
 
         <div class="row">
             <div class="col-sm-6 wow slideInLeft animated zuragnuud"
@@ -100,9 +99,7 @@
                 <img src="{{ asset('resources/web/images/sofa.png') }}" class="img-responsive" alt="Сандал"
                      style="width: 100%">
             </div>
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-4 home-geriin-tavilga">
+            <div class="col-sm-5 home-geriin-tavilga">
                 <div class="right-section wow slideInRight animated"
                      style="visibility: visible; animation-name: slideInRight;">
                     <div class="outer-bound">
@@ -112,7 +109,7 @@
                                 <div class="row">
                                     <div class="home-geriin-tavilga-header">
                                         <h2>
-                                            Гэрийн Тавилга
+                                            <a href="{{ path('ger') }}"> Гэрийн Тавилга</a>
                                         </h2>
                                     </div>
                                     <div class="home-geriin-tavilga-body">
@@ -144,7 +141,7 @@
     <!-- Mod -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #ffd200;padding: 0;">
+         style="background-color: #ffd200;height: 100vh;">
 
         <div class="row">
             <div class="col-sm-2">
@@ -158,7 +155,7 @@
                             <div class="row">
                                 <div class="home-uildver-header">
                                     <h2>
-                                        Үйлдвэр
+                                        <a href="{{ path('uildver') }}"> Үйлдвэр</a>
                                     </h2>
                                 </div>
                                 <div class="home-uildver-body">

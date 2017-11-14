@@ -26,127 +26,50 @@
                         <div style="background-color: #fff;text-align: left">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ path('home') }}">Нүүр хуудас</a></li>
-                                <li class="breadcrumb-item"><a href="{{ path('ger') }}">Гэрийн тавилга</a></li>
-                                <li class="breadcrumb-item"><a href="{{ path('product', {'id': 1}) }}">Буйдан</a></li>
-                                <li class="breadcrumb-item active">Ногоон буйдан</li>
+                                <li class="breadcrumb-item"><a
+                                            href="{% if paren1id == 1 %}{{ path('ger') }}{% else %}{{ path('albantasalgaa') }}{% endif %}">{{ paren1name }}</a>
+                                </li>
+                                <li class="breadcrumb-item"><a
+                                            href="{{ path('product', {'id': paren2id}) }}">{{ paren2name }}</a></li>
+                                <li class="breadcrumb-item active">{{ name }}</li>
                             </ol>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12 wow bounceIn">
-                        <div class="container-fluid project-wrapper" id="MixItUp218D4D">
-                            <div class="zerogrid">
-                                <div class="wrap-container clearfix">
-                                    <div class="row wrap-content">
-                                        <div class="col-2-4">
-                                            <div class="col-full mix work-item video" style="display: inline-block;">
-                                                <div class="wrap-col">
-                                                    <div class="item-container">
-                                                        <a class="fancybox overlay text-center"
-                                                           data-fancybox-group="gallery"
-                                                           href="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-1-c33.jpg') }}">
-                                                        </a>
-                                                        <img src="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-1-c33.jpg') }}"
-                                                             alt="work">
+
+                    {% for a in alba %}
+                        <div class="col-md-6 col-sm-12 col-xs-12 wow bounceIn">
+                            <div class="container-fluid project-wrapper" id="MixItUp218D4D">
+                                <div class="zerogrid">
+                                    <div class="wrap-container clearfix">
+                                        <div class="row wrap-content">
+                                            {% for i in a.images %}
+                                                <div class="col-2-4">
+                                                    <div class="col-full mix work-item video"
+                                                         style="display: inline-block;">
+                                                        <div class="wrap-col">
+                                                            <div class="item-container">
+                                                                <a class="fancybox overlay text-center"
+                                                                   data-fancybox-group="gallery"
+                                                                   href="{{ image_path_item }}/{{ i.imgPath }}">
+                                                                </a>
+                                                                <img src="{{ image_path_item }}/{{ i.imgPath }}">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="col-2-4 mix work-item brand" style="display: inline-block;">
-                                            <div class="wrap-col">
-                                                <div class="item-container">
-                                                    <a class="fancybox overlay text-center"
-                                                       data-fancybox-group="gallery"
-                                                       href="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c.jpg') }}">
-                                                    </a>
-                                                    <img src="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c.jpg') }}"
-                                                         alt="work">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-2-4 mix work-item" style="display: inline-block;">
-                                            <div class="wrap-col">
-                                                <div class="item-container">
-                                                    <a class="fancybox overlay text-center"
-                                                       data-fancybox-group="gallery"
-                                                       href="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c1.jpg') }}">
-
-                                                    </a>
-                                                    <img src="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c1.jpg') }}"
-                                                         alt="work"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-2-4 mix work-item graphic" style="display: inline-block;">
-                                            <div class="wrap-col">
-                                                <div class="item-container">
-                                                    <a class="fancybox overlay text-center"
-                                                       data-fancybox-group="gallery"
-                                                       href="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c2.jpg') }}">
-                                                    </a>
-                                                    <img src="{{ asset('uploads/images/items/roar-rabbit-glamour-velvet-sofa-60-c2.jpg') }}"
-                                                         alt="work">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
-                    </div>
-
-                    <div class="col-md-6 col-sm-12 col-xs-12 wow bounceIn">
-
-
-                        <div style="background-color: #fff;text-align: left">
-                            <h5> НОГООН БУЙДАН</h5>
-
-
-                            <h6 style="font-size: 16px;margin-top: 20px"> Overall product dimensions:</h6>
-                            <ul style="list-style: none">
-                                <li> 60"w x 32"d x 31"h.</li>
-                                <li> Interior seat width: 54"..</li>
-                                <li>Seat height: 19".</li>
-                                <li>Back height from the top of the seat: 15".</li>
-                                <li>Arm height: 23.25".</li>
-                                <li> Diagonal depth: 25".</li>
-                                <li> Clearance: 9".</li>
-                                <li> Removable legs.</li>
-                            </ul>
-
-                            <h6 style="font-size: 16px;margin-top: 20px"> Overall product dimensions:</h6>
-                            <ul style="list-style: none">
-                                <li> 60"w x 32"d x 31"h.</li>
-                                <li> Interior seat width: 54"..</li>
-                                <li>Seat height: 19".</li>
-                            </ul>
-
-                            <h6 style="font-size: 16px;margin-top: 20px">PACKAGING</h6>
-
-                            <ul style="list-style: none">
-                                <li> Number of boxes: 1.</li>
-                                <li> Shipping package: 61"w x 30.7"d x 24.8"h.</li>
-                                <li> Packaged weight: 72 lbs.</li>
-                            </ul>
-
-                            <h6 style="font-size: 16px;margin-top: 20px">ТАЙЛБАР</h6>
-
-                            <p style="font-size: 16px;
-font-weight: 300;
-text-align: justify;
-color: #000;">
-                                Spot clean with a damp cloth or sponge; blot to remove excess water; air dry. Blot
-                                spills
-                                immediately with a clean colorfast towel or sponge. To prevent fading, keep fabric out
-                                of
-                                direct sunlight. Vacuum crevices.
-                            </p>
-
+                        <div class="col-md-6 col-sm-12 col-xs-12 wow bounceIn">
+                            <div style="background-color: #fff;text-align: left">
+                                {{ a.content|raw }}
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

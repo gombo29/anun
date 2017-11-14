@@ -25,7 +25,7 @@
 {% endblock %}
 {% block body %}
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #ffd200;padding: 0;padding-top: 50px;;overflow: hidden">
+         style="background-color: #ffd200;padding: 0;padding-top: 80px;;overflow: hidden">
         <div class="container">
 
             <div class="row">
@@ -44,12 +44,9 @@
                                     <div class="home-alban-tasalgaa-body">
                                         <p>
                                             АНУН ХХК нь олон улсын чанарын
-                                            стандартад нийцсэн тавилгыг худалдаалдагбөгөөд бидний бүтээгдэхүүнүүд
+                                            стандартад нийцсэн тавилгыг худалдаалдаг бөгөөд бидний бүтээгдэхүүнүүд
                                             дараах шаардлагуудыгхангасан байдаг.
                                         </p>
-                                        <a href="{{ path('albantasalgaa') }}">
-                                            <i class="fa fa-chevron-circle-down"></i>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -89,14 +86,14 @@
                                 <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                                     <div class="wrap-col">
                                         <div class="item-container">
-                                            <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : 1}) }}">
+                                            <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : g.id}) }}">
                                                 <div class="overlay-inner">
                                                     <h4 class="base">{{ g.name }}</h4>
                                                     <div class="line"></div>
-                                                    <p>{{ g.descr }}</p>
+                                                    <p>{{ g.descr|raw }}</p>
                                                 </div>
                                             </a>
-                                            <img src="/uploads/images/categories/{{ g.imgPath }}" alt="work">
+                                            <img src="{{ image_path_category }}/{{ g.imgPath }}" alt="work">
                                         </div>
                                     </div>
                                 </div>
