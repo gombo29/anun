@@ -122,6 +122,11 @@ class Item
     private $orderNum;
 
     /**
+     * @ORM\OneToMany(targetEntity="ItemColor", mappedBy="item", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $colors;
+
+    /**
      * @ORM\PrePersist()
      */
     public function onPrePersist() {
@@ -411,6 +416,7 @@ class Item
     {
         $this->hrefTarget = false;
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->colors = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -494,5 +500,41 @@ class Item
     public function getOrderNum()
     {
         return $this->orderNum;
+    }
+
+    /**
+     * Add color
+     *
+     * @param \anun\CmsBundle\Entity\ItemColor $color
+     *
+     * @return Item
+     */
+    public function addColor(\anun\CmsBundle\Entity\ItemColor $color)
+    {
+        $color->setItem($this);
+        $this->colors[] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Remove color
+     *
+     * @param \anun\CmsBundle\Entity\ItemColor $color
+     */
+    public function removeColor(\anun\CmsBundle\Entity\ItemColor $color)
+    {
+        $color->setItem(null);
+        $this->colors->removeElement($color);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColors()
+    {
+        return $this->colors;
     }
 }
