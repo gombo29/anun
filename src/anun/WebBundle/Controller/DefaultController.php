@@ -161,6 +161,8 @@ class DefaultController extends Controller
             ->addSelect('c')
             ->leftJoin('c.parent', 'p')
             ->addSelect('p')
+            ->leftJoin('n.colors', 'co')
+            ->addSelect('co')
             ->leftJoin('n.images', 'i')
             ->addSelect('i')
             ->where('n.id = :id')
@@ -181,14 +183,43 @@ class DefaultController extends Controller
                     $paren1id = $item['category']['parent']['id'];
                     $paren2name = $item['category']['name'];
                     $paren2id = $item['category']['id'];
+                    $paren2img = $item['category']['imgPath'];
                     $name = $item['name'];
+                    $code = $item['serialCode'];
+                    $headline = $item['headLine'];
+                    $content = $item['content'];
+                    $description = $item['description'];
+                    $colors = $item['colors'];
                 } else {
                     break;
                 }
             }
         }
+
+        $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
+
+        /**@var ItemCategory[] $ger */
+        $suggest = $qb
+            ->where('n.category = :id')
+            ->andWhere('n.id != :thisid')
+            ->setParameter('id', $paren2id)
+            ->setParameter('thisid', $id)
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getArrayResult();
+
+
         return $this->render('@anunWeb/Default/product-detail.html.twig', array('menu' => 3, 'id' => $id, 'alba' => $alba, 'paren1name' => $paren1name,
-            'paren2name' => $paren2name, 'paren1id' => $paren1id, 'paren2id' => $paren2id, 'name' => $name));
+            'paren2name' => $paren2name, 'paren1id' => $paren1id, 'paren2id' => $paren2id, 'name' => $name,
+            'code' => $code,
+            'headline' => $headline,
+            'content' => $content,
+            'description' => $description,
+            'colors' => $colors,
+            'paren2img' => $paren2img,
+            'suggest' => $suggest
+
+        ));
     }
 
     /**

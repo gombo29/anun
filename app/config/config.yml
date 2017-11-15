@@ -181,9 +181,9 @@ easy_admin:
                     - { property: 'colors', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemColorType', by_reference: false }}
                     - { property: 'href_target', type: 'checkbox' }
                     - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image',, type_options: { required: false }  }
-                    - { property: 'headline', type: 'ckeditor'}
-                    - { property: 'content', type: 'ckeditor' }
-                    - { property: 'description', type: 'ckeditor' }
+                    - { property: 'headline', type: 'ckeditor', label: 'Тайлбар'}
+                    - { property: 'content', type: 'ckeditor' , label: 'Арчлах заавар'}
+                    - { property: 'description', type: 'ckeditor' , label: 'Бүтээгдэхүүний хэмжээ'}
                     - { property: 'publish_at', type: 'datetime'}
                     - { property: 'expire_at', type: 'datetime'}
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false,required: false } }

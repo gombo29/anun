@@ -20,9 +20,7 @@
             content: "";
         }
 
-
-        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover
-        {
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
             color: #ffd200;
             cursor: default;
             background-color: #fff;
@@ -30,11 +28,9 @@
             border-bottom: 3px solid #ffd200;
         }
 
-        .nav-tabs
-        {
+        .nav-tabs {
             border-top: 1px solid #ddd;
         }
-
 
         .nav > li > a:focus, .nav > li > a:hover {
             text-decoration: none;
@@ -77,54 +73,21 @@
             <div class="container" style="margin-top: -100px">
                 <div class="row">
                     <div class="col-xs-6  wow bounceIn detail-header" style="visibility: visible;text-align: left;">
-                        <p style="font-weight: 300;margin-bottom: 10px;font-size: 12px">EXCLUSIVE COLLECTION</p>
                         <div style="margin-bottom: 50px">
 
                             <h5 style="color: #000000"><b>{{ name }}</b> {{ paren2name }}</h5>
-                            <p style="font-weight: 300;font-size: 12px">EX 5473903275</p>
+                            <p style="font-weight: 300;font-size: 12px">{{ code }}</p>
                         </div>
 
                         <p style="margin-bottom: 10px;font-size: 14px">өнгө:</p>
                         <div>
-                            <div style="width: 20px;height: 20px;border-radius: 50%;background-color: #000000;display: inline-block">
-                                <i class="fa fa-angle-down" style="color: #ffffff;margin-left: 5px"></i></div>
-                            <div style="width: 20px;height: 20px;border-radius: 50%;background-color: red;display: inline-block">
+                            {% for c in colors %}
+                                <div style="width: 20px;height: 20px;border-radius: 50%;background-color: #{{ c.color }};display: inline-block">
+                                </div>
 
-                                <i class="fa fa-angle-down" style="color: red;margin-left: 5px"></i>
-
-                            </div>
-                            <div style="width: 20px;height: 20px;border-radius: 50%;background-color:green;display: inline-block;margin-bottom: 20px;">
-
-                                <i class="fa fa-angle-down" style="color: green;margin-left: 5px"></i>
-                            </div>
-
+                            {% endfor %}
                             <p style="font-weight: 300;font-size: 12px;text-align: justify">
-                                Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum
-                                auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet
-                                nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a
-                                odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in
-                                elit.</p>
-                            <p style="font-weight: 300;font-size: 12px;text-align: justify">
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a
-                                augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.
-                                Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa
-                                nisl quis neque. Suspendisse in orci enim.
-                            </p>
-                            <p style="font-weight: 300;font-size: 12px;text-align: justify">
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a
-                                augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.
-                                Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa
-                                nisl quis neque. Suspendisse in orci enim.
-                            </p>
-                            <p style="font-weight: 300;font-size: 12px;text-align: justify">
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-                                himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a
-                                augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.
-                                Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa
-                                nisl quis neque. Suspendisse in orci enim.
-                            </p>
+                                {{ headline|raw }}</p>
 
 
                         </div>
@@ -161,51 +124,93 @@
                     <div class="col-md-12 col-sm-12 col-xs-12 wow bounceIn" style="margin-top: 70px">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                                                      data-toggle="tab">Дэлгэрэнгүй</a></li>
+                                                                      data-toggle="tab">Арчлах заавар</a></li>
                             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
-                                                       data-toggle="tab">Тайлбар</a></li>
+                                                       data-toggle="tab">Бүтээгдэхүүний хэмжээ</a></li>
 
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="home">
-
-                                Одоогоор мэдээлэл ороогүй байна.
-
+                                {% if content != null %}
+                                    {{ content|raw }}
+                                {% else %}
+                                    Одоогоор мэдээлэл ороогүй байна.
+                                {% endif %}
                             </div>
                             <div role="tabpanel" class="tab-pane" id="profile">
 
-                                Одоогоор мэдээлэл ороогүй байна.
-
+                                {% if description != null %}
+                                    {{ content|raw }}
+                                {% else %}
+                                    Одоогоор мэдээлэл ороогүй байна.
+                                {% endif %}
                             </div>
 
                         </div>
 
                     </div>
                 </div>
+
+
+                <div style="margin-top: 50px">
+
+                    <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
+                        <div class="wrap-col">
+                            <div class="item-container">
+                                <a class="fancybox overlay text-center"
+                                   href="{{ path('product' , {'id' : paren2id}) }}">
+                                    <div class="overlay-inner">
+                                        <h4 class="base">{{ paren2name }}</h4>
+                                        <div class="line"></div>
+                                    </div>
+                                </a>
+                                <img src="{{ image_path_item }}/{{ paren2img }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for i in suggest %}
+                        <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
+                            <div class="wrap-col">
+                                <div class="item-container">
+                                    <a class="fancybox overlay text-center"
+                                       href="{{ path('product_detail' , {'id' : i.id}) }}">
+                                        <div class="overlay-inner">
+                                            <h4 class="base">{{ i.name }}</h4>
+                                            <div class="line"></div>
+                                            <p>{{ i.headLine|raw }}</p>
+                                        </div>
+                                    </a>
+                                    <img src="{{ image_path_item }}/{{ i.mainImgPath }}">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
-{% block js %}
-    <script src="{{ asset('resources/web/js/swiper.min.js') }}"></script>
+    {% block js %}
+        <script src="{{ asset('resources/web/js/swiper.min.js') }}"></script>
 
-    <script>
-        var galleryTop = new Swiper('.gallery-top', {
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            spaceBetween: 10,
-        });
-        var galleryThumbs = new Swiper('.gallery-thumbs', {
-            spaceBetween: 10,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            touchRatio: 0.2,
-            slideToClickedSlide: true
-        });
-        galleryTop.params.control = galleryThumbs;
-        galleryThumbs.params.control = galleryTop;
+        <script>
+            var galleryTop = new Swiper('.gallery-top', {
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 10,
+            });
+            var galleryThumbs = new Swiper('.gallery-thumbs', {
+                spaceBetween: 10,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                touchRatio: 0.2,
+                slideToClickedSlide: true
+            });
+            galleryTop.params.control = galleryThumbs;
+            galleryThumbs.params.control = galleryTop;
 
-    </script>
-{% endblock %}
+        </script>
+    {% endblock %}
