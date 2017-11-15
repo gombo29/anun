@@ -1,0 +1,3 @@
+#anun_security_homepage:
+#    path:     /
+#    defaults: { _controller: anunSecurityBundle:Default:index }
