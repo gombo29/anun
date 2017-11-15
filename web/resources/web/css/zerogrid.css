@@ -22,6 +22,7 @@ Author URI: http://www.zerotheme.com/
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     width:100%;
+    height:275px;
 }
 .item-container img {
     display: block;

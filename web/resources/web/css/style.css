@@ -128,18 +128,18 @@ body {
 }
 
 .home-geriin-tavilga {
-    padding-top: 80px;
+    padding-top: 50px;
     overflow: hidden
 }
 
 .home-uildver-header {
     border-bottom: 2px solid #ffffff;
     padding-bottom: 20px;
-    padding-top: 120px;
+    padding-top: 100px;
 }
 
 .home-uildver-header h2 {
-    font-size: 86px;
+    font-size: 60px;
     color: #ffffff;
     text-align: left
 }
@@ -1819,6 +1819,11 @@ video {
     }
 }
 
+.wrap-col
+{
+    border: 1px solid #ccc;
+}
+
 /* ------------  Our Creative Thinkers ------------  */
 #thinkers .thinker-wrap img, #publication-slider .item .image img {
     width: 100%;
@@ -2096,7 +2101,7 @@ video {
     bottom: 10px;
     left: 10px;
     width: auto;
-    height: inherit;
+    height: 275px;
     color: #383838;
     opacity: 0;
     filter: alpha(opacity=0);
@@ -2239,7 +2244,7 @@ video {
     bottom: 10px;
     right: 10px;
     width: auto;
-    height: inherit;
+    height: 255px;
     color: #222222;
     opacity: 0;
     filter: alpha(opacity=0);

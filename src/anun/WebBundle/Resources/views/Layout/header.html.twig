@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="container">
             <div class="navbar-header">
-                {#<a class="navbar-brand" href="{{ path('home') }}"><img#}
-                            {#src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo" id="logo"></a>#}
+                <a class="navbar-brand" href="{{ path('home') }}"><img
+                            src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo" id="logo"></a>
             </div>
             <div class="right">
                 <div id="burger-menu">
@@ -12,7 +12,6 @@
                     <span id="sp3"></span>
                 </div>
             </div>
-
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right" id="main-menu" style="display: none">
                     <li {% if menu == 1 %}class="active"{% endif %}><a href="{{ path("home") }}" id="homesick">НҮҮР ХУУДАС</a></li>
@@ -21,7 +20,6 @@
                     <li class="{% if menu == 3 %}active {% endif %} dropdown" ><a  class="dropdown-toggle"
                                                                                    data-toggle="dropdown"
                                                                                    href="#" id="homesick2">БҮТЭЭГДЭХҮҮН  <b class="caret"></b></a>
-
                         <ul class="nav dropdown-menu" id="homesick9">
                             <li><a href="{{ path('ger') }}" class="subm" id="homesick3">ГЭРИЙН ТАВИЛГА </a></li>
                             <li><a href="{{ path('albantasalgaa') }}" class="subm" id="homesick4">АЛБАН ТАСАЛГААНЫ ТАВИЛГА </a></li>

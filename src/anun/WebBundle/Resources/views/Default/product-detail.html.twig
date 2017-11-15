@@ -1,7 +1,7 @@
 {% extends '@anunWeb/Layout/base.html.twig' %}
 {% block style %}
     <style>
-        .item-container:hover .overlay {
+        .thisissis:hover .overlay {
             opacity: 0;
         }
 
@@ -103,7 +103,7 @@
                                                     <div class="col-full mix work-item video"
                                                          style="display: inline-block;">
                                                         <div class="wrap-col">
-                                                            <div class="item-container">
+                                                            <div class="item-container thisissis">
                                                                 <a class="fancybox overlay text-center"
                                                                    data-fancybox-group="gallery"
                                                                    href="{{ image_path_item }}/{{ i.imgPath }}">
@@ -156,7 +156,13 @@
 
                 <div style="margin-top: 50px">
 
-                    <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
+
+  <div class="container-fluid project-wrapper" id="MixItUp218D4D">
+                <div class="zerogrid">
+                    <div class="wrap-container clearfix">
+                        <div class="row wrap-content">
+
+                          <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                         <div class="wrap-col">
                             <div class="item-container">
                                 <a class="fancybox overlay text-center"
@@ -166,11 +172,10 @@
                                         <div class="line"></div>
                                     </div>
                                 </a>
-                                <img src="{{ image_path_item }}/{{ paren2img }}">
+                                <img src="{{ image_path_category }}/{{ paren2img }}">
                             </div>
                         </div>
                     </div>
-
                     {% for i in suggest %}
                         <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                             <div class="wrap-col">
@@ -188,6 +193,9 @@
                             </div>
                         </div>
                     {% endfor %}
+                    </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>

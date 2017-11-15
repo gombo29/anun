@@ -2,8 +2,7 @@
 {% block style %}
     <style>
         @media screen and (max-width: 768px) {
-            .parallax-slider
-            {
+            .parallax-slider {
                 display: none;
             }
         }
@@ -55,21 +54,22 @@
 
                             <div class="feature">
                                 <div class="row">
-                                    <div class="home-alban-tasalgaa-header">
-                                        <h2>
-                                            АЛБАН ТАСАЛГААНЫ ТАВИЛГА
-                                        </h2>
-                                    </div>
-                                    <div class="home-alban-tasalgaa-body">
-                                        <p>
-                                            АНУН ХХК нь олон улсын чанарын
-                                            стандартад нийцсэн тавилгыг худалдаалдагбөгөөд бидний бүтээгдэхүүнүүд
-                                            дараах шаардлагуудыгхангасан байдаг.
-                                        </p>
-                                        <a href="{{ path('albantasalgaa') }}">
-                                            <i class="fa fa-chevron-circle-down"></i>
-                                        </a>
-                                    </div>
+                                    <a href="{{ path('albantasalgaa') }}">
+                                        <div class="home-alban-tasalgaa-header">
+                                            <h2>
+                                                АЛБАН ТАСАЛГААНЫ ТАВИЛГА
+                                            </h2>
+                                        </div>
+                                        <div class="home-alban-tasalgaa-body">
+                                            <p>
+                                                АНУН ХХК нь олон улсын чанарын
+                                                стандартад нийцсэн тавилгыг худалдаалдагбөгөөд бидний бүтээгдэхүүнүүд
+                                                дараах шаардлагуудыгхангасан байдаг.
+                                            </p>
+
+
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
@@ -92,7 +92,7 @@
     <!-- buidan -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #141414;padding: 0;padding-bottom: 50px;padding-top: 50px">
+         style="background-color: #141414;padding: 0;padding-top: 50px">
 
         <div class="row">
             <div class="col-sm-6 wow slideInLeft animated zuragnuud"
@@ -110,24 +110,22 @@
 
                             <div class="feature">
                                 <div class="row">
-                                    <div class="home-geriin-tavilga-header">
-                                        <h2>
-                                            Гэрийн Тавилга
-                                        </h2>
-                                    </div>
-                                    <div class="home-geriin-tavilga-body">
-                                        <p>
-                                            АНУН дэлхийн зах зээлээс хамгийн
-                                            сайн чанарын гэр ахуйн тавилгыг
-                                            сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
-                                            хүргэдэг.
-                                        </p>
+                                    <a href="{{ path('ger') }}">
+                                        <div class="home-geriin-tavilga-header">
+                                            <h2>
+                                                Гэрийн Тавилга
+                                            </h2>
+                                        </div>
+                                        <div class="home-geriin-tavilga-body">
+                                            <p>
+                                                АНУН дэлхийн зах зээлээс хамгийн
+                                                сайн чанарын гэр ахуйн тавилгыг
+                                                сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
+                                                хүргэдэг.
+                                            </p>
 
-                                        <a href="{{ path('ger') }}">
-                                            <i class="fa fa-chevron-circle-down">
-                                            </i>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
 
@@ -144,7 +142,7 @@
     <!-- Mod -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #ffd200;padding: 0;">
+         style="background-color: #ffffff;padding: 0;">
 
         <div class="row">
             <div class="col-sm-2">
@@ -156,24 +154,21 @@
 
                         <div class="feature">
                             <div class="row">
-                                <div class="home-uildver-header">
-                                    <h2>
-                                        Үйлдвэр
-                                    </h2>
-                                </div>
-                                <div class="home-uildver-body">
-                                    <p>
-                                        АНУН дэлхийн зах зээлээс хамгийн
-                                        сайн чанарын гэр ахуйн тавилгыг
-                                        сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
-                                        хүргэдэг.
-                                    </p>
-
-                                    <a href="{{ path('uildver') }}">
-                                        <i class="fa fa-chevron-circle-down">
-                                        </i>
-                                    </a>
-                                </div>
+                                <a href="{{ path('uildver') }}">
+                                    <div class="home-uildver-header" style="border-bottom: 2px solid #000000;">
+                                        <h2 style="color: #000000">
+                                            Үйлдвэр
+                                        </h2>
+                                    </div>
+                                    <div class="home-uildver-body">
+                                        <p>
+                                            АНУН дэлхийн зах зээлээс хамгийн
+                                            сайн чанарын гэр ахуйн тавилгыг
+                                            сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
+                                            хүргэдэг.
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -189,6 +184,55 @@
             </div>
         </div>
     </div>
+
+
+    <!-- uilchilgee -->
+
+    <div class="service-1 mid-level-padding text-center"
+         style="background-color: #ffd200;padding: 0;padding-top: 50px">
+
+        <div class="row">
+            <div class="col-sm-6 wow slideInLeft animated zuragnuud"
+                 style="visibility: visible; animation-name: slideInLeft;">
+                <img src="{{ asset('resources/web/images/meter.png') }}" class="img-responsive" alt="Сандал"
+                     style="width: 100%">
+            </div>
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-4 home-geriin-tavilga" style="padding-top: 85px;">
+                <div class="right-section wow slideInRight animated"
+                     style="visibility: visible; animation-name: slideInRight;">
+                    <div class="outer-bound">
+                        <div class="left-section">
+
+                            <div class="feature">
+                                <div class="row">
+                                    <a href="{{ path('service') }}">
+                                        <div class="home-geriin-tavilga-header" style="border-bottom: 2px solid #ffffff;">
+                                            <h2 style="color: #ffffff">
+                                                Үйлчилгээ
+                                            </h2>
+                                        </div>
+                                        <div class="home-geriin-tavilga-body">
+                                            <p>
+                                               Мэдээлэл оруулаагүй байна
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
 
