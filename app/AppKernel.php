@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new FM\ElfinderBundle\FMElfinderBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Xmon\ColorPickerTypeBundle\XmonColorPickerTypeBundle(),
+            new anun\SecurityBundle\anunSecurityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
