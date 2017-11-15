@@ -14,6 +14,9 @@ parameters:
     image_path_item: /uploads/images/items
     image_path_category: /uploads/images/categories
 
+assetic:
+    bundles:        [ 'XmonColorPickerTypeBundle' ]
+
 framework:
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
@@ -43,6 +46,9 @@ twig:
     globals:
           image_path_item: /uploads/images/items
           image_path_category: /uploads/images/categories
+    form:
+            resources:
+                - 'XmonColorPickerTypeBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -127,6 +133,9 @@ easy_admin:
     site_name: 'АНУН CMS'
     design:
         brand_color: '#ddb707'
+        assets:
+            js:
+                - 'bundles/xmoncolorpickertype/js/jscolor.js'
     formats:
         date:     'Y/m/d'
         time:     'H:i'
@@ -152,9 +161,10 @@ easy_admin:
                   - id
                   - { property: 'category' }
                   - { property: 'name', label: 'Нэр' }
+                  - { property: 'serialCode', label: 'Барааны код' }
                   - { property: 'main_img_path', label: 'Зураг', type: 'image', base_path: '%app.path.item_images%'}
                   - { property: 'href', label: 'Үсрэх URL'}
-                  - { property: 'href_target', label: 'Шинэ таб' }
+                  - { property: 'href_target', label: 'Шинэ таб', type: 'boolean'}
                   - { property: 'publish_at', type: 'datetime' }
                   - { property: 'expire_at', type: 'datetime' }
                   - { property: 'created_at', type: 'datetime' }
@@ -167,10 +177,13 @@ easy_admin:
                     - { property: 'category', type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name'} }
                     - name
                     - href
+                    - { property: 'serialCode', label: 'Барааны код'}
+                    - { property: 'colors', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemColorType', by_reference: false }}
                     - { property: 'href_target', type: 'checkbox' }
                     - { property: 'mainImgFile',label: 'Нүүр зураг', type: 'vich_image',, type_options: { required: false }  }
                     - { property: 'headline', type: 'ckeditor'}
                     - { property: 'content', type: 'ckeditor' }
+                    - { property: 'description', type: 'ckeditor' }
                     - { property: 'publish_at', type: 'datetime'}
                     - { property: 'expire_at', type: 'datetime'}
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false,required: false } }
@@ -187,6 +200,7 @@ easy_admin:
                   - id
                   - { property: 'parent' }
                   - name
+                  - { property: 'uildverlel', label: 'Үйлдвэрлэл'}
                   - { property: 'img_path', label: 'Зураг', type: 'image', base_path: '%app.path.category_images%' }
                   - { property: 'created_at', type: 'datetime' }
                   - { property: 'updated_at', type: 'datetime' }
@@ -196,8 +210,9 @@ easy_admin:
               title: 'Категори нэмэх/засах'
               fields:
                   - name
-                  - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true }}
+                  - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
                   - { property: descr,  type: 'ckeditor'}
+                  - { property: 'uildverlel', label: 'Үйлдвэрлэл', type: "checkbox"}
                   - { property: 'imgFile', label: 'Зураг', type: 'vich_image' ,type_options: { required: false }  }
                   - { property: order_num, type: 'integer' }
         ItemGallery:

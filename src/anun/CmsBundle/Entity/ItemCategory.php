@@ -94,6 +94,13 @@ class ItemCategory
     private $items;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="uildverlel", type="boolean", nullable=true)
+     */
+    private $uildverlel;
+
+    /**
      * @ORM\PrePersist()
      */
     public function onPrePersist() {
@@ -386,5 +393,23 @@ class ItemCategory
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getUildverlel()
+    {
+        return $this->uildverlel;
+    }
+
+    /**
+     * @param bool $uildverlel
+     * @return ItemCategory
+     */
+    public function setUildverlel($uildverlel)
+    {
+        $this->uildverlel = $uildverlel;
+        return $this;
     }
 }

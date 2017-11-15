@@ -37,6 +37,13 @@ class Item
     /**
      * @var string
      *
+     * @ORM\Column(name="serial_code", type="string", length=255, nullable=true)
+     */
+    private $serialCode;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="main_img_path", type="string", length=255, nullable=true)
      */
     private $mainImgPath;
@@ -74,6 +81,13 @@ class Item
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     /**
      * @var \DateTime
@@ -120,6 +134,11 @@ class Item
      * @ORM\Column(name="order_num", type="integer", nullable=true)
      */
     private $orderNum;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ItemColor", mappedBy="item", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $colors;
 
     /**
      * @ORM\PrePersist()
@@ -411,6 +430,7 @@ class Item
     {
         $this->hrefTarget = false;
         $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->colors = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -494,5 +514,89 @@ class Item
     public function getOrderNum()
     {
         return $this->orderNum;
+    }
+
+    /**
+     * Add color
+     *
+     * @param \anun\CmsBundle\Entity\ItemColor $color
+     *
+     * @return Item
+     */
+    public function addColor(\anun\CmsBundle\Entity\ItemColor $color)
+    {
+        $color->setItem($this);
+        $this->colors[] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Remove color
+     *
+     * @param \anun\CmsBundle\Entity\ItemColor $color
+     */
+    public function removeColor(\anun\CmsBundle\Entity\ItemColor $color)
+    {
+        $color->setItem(null);
+        $this->colors->removeElement($color);
+    }
+
+    /**
+     * Get colors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getColors()
+    {
+        return $this->colors;
+    }
+
+    /**
+     * Set serialCode
+     *
+     * @param string $serialCode
+     *
+     * @return Item
+     */
+    public function setSerialCode($serialCode)
+    {
+        $this->serialCode = $serialCode;
+
+        return $this;
+    }
+
+    /**
+     * Get serialCode
+     *
+     * @return string
+     */
+    public function getSerialCode()
+    {
+        return $this->serialCode;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Item
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
