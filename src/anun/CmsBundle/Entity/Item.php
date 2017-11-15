@@ -37,6 +37,13 @@ class Item
     /**
      * @var string
      *
+     * @ORM\Column(name="serial_code", type="string", length=255, nullable=true)
+     */
+    private $serialCode;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="main_img_path", type="string", length=255, nullable=true)
      */
     private $mainImgPath;
@@ -74,6 +81,13 @@ class Item
      * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
 
     /**
      * @var \DateTime
@@ -536,5 +550,53 @@ class Item
     public function getColors()
     {
         return $this->colors;
+    }
+
+    /**
+     * Set serialCode
+     *
+     * @param string $serialCode
+     *
+     * @return Item
+     */
+    public function setSerialCode($serialCode)
+    {
+        $this->serialCode = $serialCode;
+
+        return $this;
+    }
+
+    /**
+     * Get serialCode
+     *
+     * @return string
+     */
+    public function getSerialCode()
+    {
+        return $this->serialCode;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Item
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
