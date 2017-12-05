@@ -10,14 +10,30 @@
             border: 5px solid #ffffff;
         }
 
-        .more{
+        .more {
             width: 100%;
             text-align: center;
             margin-top: 35px;
         }
-        .more:hover
-        {
+
+        .more:hover {
             color: #ffd200;
+        }
+
+        .home-alban-tasalgaa-header
+        {
+            width: 100%;
+        }
+
+        .home-alban-tasalgaa-body
+        {
+            width: 100%;
+            padding-bottom: 30px;
+        }
+
+        .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img{
+            margin-top: 35px;
+            margin-left: 60px;
         }
     </style>
 
@@ -43,9 +59,14 @@
                                     </div>
                                     <div class="home-alban-tasalgaa-body">
                                         <p>
-                                            АНУН ХХК нь олон улсын чанарын
-                                            стандартад нийцсэн тавилгыг худалдаалдаг бөгөөд бидний бүтээгдэхүүнүүд
-                                            дараах шаардлагуудыгхангасан байдаг.
+                                            Бид удирдах ажилтан, менежер, оффисын ажилтан зэрэг бүх шатны ажилчдад
+                                            зориулсан албан тасалгааны тавилгуудыг санал болгохоос гадна аж ахуй нэгжийн
+                                            албан тасалгааны тавилгаас гадна соёл урлаг, банк санхүү, төрийн болон бүх
+                                            шатны боловсролын байгуулагуудын ажлын онцлогт тохирсон тавилгын шийдлийг
+                                            санал болгодог. АНУН ХХК-ийн мэргэшсэн байгууллага хариуцсан менежер,
+                                            интерьер дизайнерууд харилцагчидтай биечлэн уулзаж, шаардлагатай танилцуулга
+                                            мэдээллийг хүргэхээс гадна тухайн албан тасалгааны шийдэлд тохирсон интерьер
+                                            дизайны мэргэжлийн зөвлөгөөг өгч хамтран ажиллаж байна.
                                         </p>
                                     </div>
                                 </div>
@@ -57,7 +78,7 @@
                 </div>
                 <div class="col-sm-1">
                 </div>
-                <div class="col-sm-4 zuragnuud">
+                <div class="col-sm-5 zuragnuud">
                     <div class="right-section wow slideInRight animated"
                          style="visibility: visible; animation-name: slideInRight;width: 100%">
                         <img src="{{ asset('resources/web/images/chair.png') }}" class="img-responsive"
@@ -86,7 +107,8 @@
                                 <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                                     <div class="wrap-col">
                                         <div class="item-container">
-                                            <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : g.id}) }}">
+                                            <a class="fancybox overlay text-center"
+                                               href="{{ path('product' , {'id' : g.id}) }}">
                                                 <div class="overlay-inner">
                                                     <h4 class="base">{{ g.name }}</h4>
                                                     <div class="line"></div>
@@ -106,9 +128,9 @@
 
         <div class="more">
 
-                    <i class="fa fa-th-large" aria-hidden="true"></i>
-                    <a class="" href="#">Илүү ихийг үзэх
-                    </a>
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+            <a class="" href="#">Илүү ихийг үзэх
+            </a>
 
         </div>
 

@@ -255,11 +255,37 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/uildver", name="uildver")
+     * @Route("/uildver/{page}", name="uildver", requirements={"page" = "\d+"}, defaults={"page" = 1})
      */
-    public function uildverAction()
+    public function uildverAction($page)
     {
-        return $this->render('@anunWeb/Default/uildver.html.twig', array('menu' => 3));
+
+        $pagesize = 20;
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var ItemCategory[] $ger */
+        $ger = $qb
+            ->where('n.parent = 1')
+            ->orderBy('n.id', 'desc')
+            ->setFirstResult(($page - 1) * $pagesize)
+            ->setMaxResults($pagesize)
+            ->getQuery()
+            ->getArrayResult();
+
+
+
+        return $this->render('@anunWeb/Default/uildver.html.twig', array(
+
+            'menu' => 3,
+            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
+            'count' => $count,
+            'page' => $page,
+            'ger' => $ger,
+
+        ));
     }
 
 

@@ -10,14 +10,18 @@
             border: 5px solid #ffffff;
         }
 
-        .more{
+        .more {
             width: 100%;
             text-align: center;
             margin-top: 35px;
         }
-        .more:hover
-        {
+
+        .more:hover {
             color: #ffd200;
+        }
+
+        .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img{
+            padding-top: 125px;
         }
     </style>
 {% endblock %}
@@ -27,7 +31,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-sm-6 wow slideInLeft animated"
+                <div class="col-sm-7 wow slideInLeft animated"
                      style="visibility: visible; animation-name: slideInLeft;">
                     <div class="outer-bound">
                         <div class="left-section">
@@ -36,15 +40,20 @@
                                 <div class="row">
                                     <div class="home-alban-tasalgaa-header" style="padding-top: 120px">
                                         <h2>
-                                           ГЭРИЙН ТАВИЛГА
+                                            ГЭРИЙН ТАВИЛГА
                                         </h2>
                                     </div>
-                                    <div class="home-alban-tasalgaa-body">
+                                    <div class="home-alban-tasalgaa-body" style="margin-bottom: 60px;">
                                         <p>
-                                            АНУН дэлхийн зах зээлээс хамгийн
-                                            сайн чанарын гэр ахуйн тавилгыг
-                                            сонгон Монголын хэрэглэгчдэд гэрээ бүрэн тохижуулах шийдлүүдийг
-                                            хүргэдэг.
+                                            Бидний сонгон нийлүүлдэг тавилгууд нь орчин үеийн минималист загварыг тав
+                                            тух, энгийн хэрэглээтэй хослуулсан байдаг. Бид зөвхөн байгаль орчин болон
+                                            хүний эрүүл мэнд, тэр дундаа хүүхдэд хортой нөлөө, харшил үзүүлдэггүй
+                                            хамгийн сайн чанарын материалаар хийгдсэн тавилгыг сонгон нийлүүлдэг. Та
+                                            шинэ гэртээ цогц тавилгын шийдэл хайж байгаа эсвэл гэрийнхээ нэг өрөөг
+                                            шинээр тохижуулахыг хүсч байгаа аль ч тохиолдолд хамгийн төгс зохицох
+                                            шийдлийг манайхаас авах боломжтой. Бид танд бэлэн бүтээгдэхүүн санал
+                                            болгохоос гадна, таны хүссэн загвар, өнгө, материал, хэмжээгээр Итали,
+                                            Герман улсад үйлдвэрлүүлэн таны гэрт суурилуулж өгнө.
                                         </p>
                                     </div>
                                 </div>
@@ -54,12 +63,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-4 zuragnuud">
+                {#<div class="col-sm-1">#}
+                {#</div>#}
+                <div class="col-sm-5 zuragnuud">
                     <div class="right-section wow slideInRight animated"
                          style="visibility: visible; animation-name: slideInRight;width: 100%">
-                        <img src="{{ asset('resources/web/images/clock.png') }}" class="img-responsive"
+                        <img src="{{ asset('resources/web/images/sofa.png') }}" class="img-responsive"
                              alt="Asem Villa">
                     </div>
                 </div>
@@ -81,22 +90,23 @@
                                 <h2>ШИНЭЛЭГ ЗАГВАРУУД</h2>
                             </div>
 
-                          {% for g in ger %}
-                            <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
-                                <div class="wrap-col">
-                                    <div class="item-container">
-                                        <a class="fancybox overlay text-center" href="{{ path('product' , {'id' : g.id}) }}">
-                                            <div class="overlay-inner">
-                                                <h4 class="base">{{ g.name }}</h4>
-                                                <div class="line"></div>
-                                                <p>{{ g.descr|raw }}</p>
-                                            </div>
-                                        </a>
-                                        <img src="{{ image_path_category }}/{{ g.imgPath }}" >
+                            {% for g in ger %}
+                                <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
+                                    <div class="wrap-col">
+                                        <div class="item-container">
+                                            <a class="fancybox overlay text-center"
+                                               href="{{ path('product' , {'id' : g.id}) }}">
+                                                <div class="overlay-inner">
+                                                    <h4 class="base">{{ g.name }}</h4>
+                                                    <div class="line"></div>
+                                                    <p>{{ g.descr|raw }}</p>
+                                                </div>
+                                            </a>
+                                            <img src="{{ image_path_category }}/{{ g.imgPath }}">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                          {% endfor %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
