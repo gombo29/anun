@@ -118,7 +118,7 @@ class Item
     private $expireAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="ItemGallery", mappedBy="item", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ItemGallery", mappedBy="item", cascade={"persist", "remove"})
      */
     private $images;
 
@@ -136,7 +136,7 @@ class Item
     private $orderNum;
 
     /**
-     * @ORM\OneToMany(targetEntity="ItemColor", mappedBy="item", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="ItemColor", mappedBy="item", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $colors;
 

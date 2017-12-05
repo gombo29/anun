@@ -13,6 +13,7 @@ parameters:
     app.path.item_images: /uploads/images/items
     image_path_item: /uploads/images/items
     image_path_category: /uploads/images/categories
+    image_path_project: /uploads/images/projects
 
 assetic:
     bundles:        [ 'XmonColorPickerTypeBundle' ]
@@ -98,11 +99,20 @@ vich_uploader:
             uri_prefix: '%app.path.item_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/items'
 
+        project_images:
+            uri_prefix: "%image_path_project%"
+            upload_destination: "%kernel.root_dir%/../web/uploads/images/projects"
+
 ivory_ck_editor:
     input_sync: true
     default_config: default
     configs:
         default:
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
+
+        long:
+            height: "1000px"
             filebrowserBrowseRoute: elfinder
             filebrowserBrowseRouteParameters: []
 
@@ -228,3 +238,31 @@ easy_admin:
             form:
                 fields:
                     - { property: 'imgFile', label: 'Зураг', type: 'vich_image' }
+
+        Project:
+            class: anun\CmsBundle\Entity\Project
+            list:
+                title: 'Төслүүд'
+                fields:
+                    - title
+                    - headline
+                    - { property: 'previewImg', type: 'image', base_path: '%image_path_project%' }
+                    - client
+                    - detailSize
+                    - detailYear
+                    - detailLocation
+                    - detailGoods
+
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Төслийн агуулга'}
+                    - { property: body,  type: 'ckeditor', type_options: {config_name: "long"} }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Дэлгэрэнгүй мэдээлэл'}
+                    - title
+                    - headline
+                    - { property: 'previewImgFile', label: 'Зураг', type: 'vich_image' ,type_options: { required: false }  }
+                    - client
+                    - detailSize
+                    - detailYear
+                    - detailLocation
+                    - detailGoods

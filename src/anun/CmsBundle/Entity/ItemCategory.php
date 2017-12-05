@@ -77,7 +77,7 @@ class ItemCategory
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="ItemCategory", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="ItemCategory", mappedBy="parent", cascade={"remove"})
      */
     private $children;
 
@@ -89,7 +89,7 @@ class ItemCategory
     private $orderNum;
 
     /**
-     * @ORM\OneToMany(targetEntity="Item", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="category", cascade={"remove"})
      */
     private $items;
 
