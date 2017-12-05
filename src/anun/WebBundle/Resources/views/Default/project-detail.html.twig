@@ -32,6 +32,7 @@
             width: 323px;
             text-align: left;
         }
+
         .content-detail .desc {
             position: absolute;
             width: 360px;
@@ -65,6 +66,7 @@
             margin-bottom: 15px;
             margin-top: 15px;
         }
+
         .share a {
             display: inline-block;
             margin-right: 10px;
@@ -104,7 +106,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ path('home') }}">Нүүр хуудас</a></li>
                                 <li class="breadcrumb-item"><a href="{{ path('projects') }}">Манай төслүүд</a></li>
-                                <li class="breadcrumb-item active">Жишээ дэлгэрэнгүй хуудас</li>
+                                <li class="breadcrumb-item active">{{ project.title }}</li>
                             </ol>
                         </div>
                     </div>
@@ -112,64 +114,37 @@
                         <h2></h2>
                     </div>
                     <div class="col-sm-8">
-                        <p class="content-detail-main"><img class="alignleft size-large wp-image-1609"
-                                src="http://render.mn/wp-content/uploads/2017/06/IMG_0891-683x1024.jpg" alt="IMG_0891"
-                                width="683" height="1024" style="width: 100%;margin-bottom: ">
-                            <img class="alignleft size-large wp-image-1610"
-                                 src="http://render.mn/wp-content/uploads/2017/06/IMG_0911-1024x683.jpg"
-                                 alt="IMG_0911" width="1024" height="683"> <img
-                                    class="alignleft size-large wp-image-1611"
-                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0918-683x1024.jpg"
-                                    alt="IMG_0918" width="683" height="1024"> <img
-                                    class="alignleft size-large wp-image-1612"
-                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0923-1024x683.jpg"
-                                    alt="IMG_0923" width="1024" height="683"> <img
-                                    class="alignleft size-large wp-image-1613"
-                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0936-1024x683.jpg"
-                                    alt="IMG_0936" width="1024" height="683"> <img
-                                    class="alignleft size-large wp-image-1614"
-                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0962-683x1024.jpg"
-                                    alt="IMG_0962" width="683" height="1024"> <img
-                                    class="alignleft size-large wp-image-1615"
-                                    src="http://render.mn/wp-content/uploads/2017/06/IMG_0968-683x1024.jpg"
-                                    alt="IMG_0968" width="683" height="1024"></p>
+                        {{ project.body|raw }}
                     </div>
 
 
                     <div class="col-md-4 content-detail">
 
 
-                            <div class="desc">
-                                <div class="desc-content">
-                                    <span>Захиалагч</span>
-                                    <h4>
-                                        Гангар инвест ХХК					</h4>
-                                </div>
-                                <div class="desc-content">
-                                    <span>Хэмжээ </span>
-                                    <h4></h4>
-                                </div>
-                                <div class="desc-content">
-                                    <span>Гүйцэтгэсэн он </span>
-                                    <h4>
-                                        <a href="http://render.mn/on/2017/">2017</a>					</h4>
-                                </div>
-                                <div class="desc-content">
-                                    <span>Бүтээгдэхүүн </span>
-                                    <h4>
-                                        <a href="http://render.mn/category/interier-design/">Интерьер дизайн, гүйцэтгэл</a>					</h4>
-                                </div>
-                                <div class="desc-content">
-                                    <span>Байршил</span>
-                                    <h4>Сүхбаатар дүүрэг</h4>
-                                </div>
-                                {#<div class="share">#}
-                                    {#<a href="http://www.facebook.com/share.php?u=layout=button" class="fb"><i class="fa fa-facebook"></i> Share</a>#}
-                                    {#<a href="https://twitter.com/share" data-via="http://render.mn/ub-central-residence/" class="tw"> Tweet</a>#}
-                                    {#<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>#}
-                                    {#<a href="https://plus.google.com/share?url={http://render.mn/ub-central-residence/}" onclick="javascript:window.open(this.href,#}
-  {#'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gp"><i class="fa fa-google-plus"></i> Plus</a>#}
-                                {#</div>#}
+                        <div class="desc">
+                            <div class="desc-content">
+                                <span>Захиалагч</span>
+                                <h4>
+                                    {{ project.client }}</h4>
+                            </div>
+                            <div class="desc-content">
+                                <span>Хэмжээ </span>
+                                <h4>{{ project.detailSize }}</h4>
+                            </div>
+                            <div class="desc-content">
+                                <span>Гүйцэтгэсэн он </span>
+                                <h4>{{ project.detailYear }}</h4>
+                            </div>
+                            <div class="desc-content">
+                                <span>Бүтээгдэхүүн </span>
+                                <h4>
+                                    {{ project.detailGoods }}
+                                </h4>
+                            </div>
+                            <div class="desc-content">
+                                <span>Байршил</span>
+                                <h4>{{ project.detailLocation }}</h4>
+                            </div>
                         </div>
                     </div>
 

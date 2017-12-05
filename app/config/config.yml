@@ -47,6 +47,7 @@ twig:
     globals:
           image_path_item: /uploads/images/items
           image_path_category: /uploads/images/categories
+          image_path_project: /uploads/images/projects
     form:
             resources:
                 - 'XmonColorPickerTypeBundle:Form:fields.html.twig'

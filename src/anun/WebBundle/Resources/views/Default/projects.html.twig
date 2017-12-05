@@ -44,19 +44,19 @@
                             <div style="background-color: #fff;padding-bottom: 30px;text-align: left">
                                 <h2> </h2>
                             </div>
-                            {% for i in 1..20 %}
+                            {% for i in project %}
                                 <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
                                     <div class="wrap-col">
                                         <div class="item-container">
                                             <a class="fancybox overlay text-center"
-                                               href="{{ path('projectsDeatail' , {'id' : 1}) }}">
+                                               href="{{ path('projectsDeatail' , {'id' : i.id}) }}">
                                                 <div class="overlay-inner">
-                                                    <h4 class="base">Жишээ мэдээ</h4>
+                                                    <h4 class="base">{{ i.title }}</h4>
                                                     <div class="line"></div>
-                                                    <p>Тайлбар текст байрлана</p>
+                                                    <p>{{ i.headline }}</p>
                                                 </div>
                                             </a>
-                                            <img src="{{ asset('resources/web/images/workimg2.jpg') }}">
+                                            <img src="{{ image_path_project }}/{{ i.previewImg }}">
                                         </div>
                                     </div>
                                 </div>

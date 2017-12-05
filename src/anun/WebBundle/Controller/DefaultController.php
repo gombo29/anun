@@ -3,6 +3,7 @@
 namespace anun\WebBundle\Controller;
 
 use anun\CmsBundle\Entity\ItemCategory;
+use anun\CmsBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -276,7 +277,6 @@ class DefaultController extends Controller
             ->getArrayResult();
 
 
-
         return $this->render('@anunWeb/Default/uildver.html.twig', array(
 
             'menu' => 3,
@@ -294,15 +294,36 @@ class DefaultController extends Controller
      */
     public function projectsAction()
     {
-        return $this->render('@anunWeb/Default/projects.html.twig', array('menu' => 4));
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:Project')->createQueryBuilder('n');
+
+        /**@var Project[] $project */
+        $project = $qb
+            ->getQuery()
+            ->getArrayResult();
+
+
+
+
+        return $this->render('@anunWeb/Default/projects.html.twig', array('menu' => 4, 'project' => $project));
     }
 
     /**
-     * @Route("/projects-detail", name="projectsDeatail")
+     * @Route("/projects-detail/{id}", name="projectsDeatail", requirements={"id" = "\d+"})
      */
-    public function projectsDetailAction()
+    public function projectsDetailAction($id)
     {
-        return $this->render('@anunWeb/Default/project-detail.html.twig', array('menu' => 4));
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:Project')->createQueryBuilder('n');
+
+        /**@var Project[] $project */
+        $project = $qb
+            ->where('n.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('@anunWeb/Default/project-detail.html.twig', array('menu' => 4, 'project' => $project[0]));
     }
 
     /**
