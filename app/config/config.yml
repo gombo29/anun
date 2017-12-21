@@ -96,13 +96,16 @@ vich_uploader:
         category_images:
             uri_prefix: '%app.path.category_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/categories'
+            namer:              vich_uploader.namer_uniqid
         item_images:
             uri_prefix: '%app.path.item_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/items'
+            namer:              vich_uploader.namer_uniqid
 
         project_images:
             uri_prefix: "%image_path_project%"
             upload_destination: "%kernel.root_dir%/../web/uploads/images/projects"
+            namer:              vich_uploader.namer_uniqid
 
 ivory_ck_editor:
     input_sync: true

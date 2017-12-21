@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="container">
             <div class="navbar-header">
-                {#<a class="navbar-brand" href="{{ path('home') }}"><img#}
-                            {#src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo" id="logo"></a>#}
+                <a class="navbar-brand" href="{{ path('home') }}"><img
+                            src="{{ asset('resources/web/images/logo-green-white.png') }}" alt="logo" id="logo"></a>
             </div>
             <div class="right">
                 <div id="burger-menu">
@@ -23,9 +23,9 @@
                         <ul class="nav dropdown-menu" id="homesick9">
                             <li><a href="{{ path('ger') }}" class="subm" id="homesick3">ГЭРИЙН ТАВИЛГА </a></li>
                             <li><a href="{{ path('albantasalgaa') }}" class="subm" id="homesick4">АЛБАН ТАСАЛГААНЫ ТАВИЛГА </a></li>
-                            <li><a href="" class="subm" id="homesick10">ҮЙЛДВЭРЛЭЛ </a></li>
+                            <li><a href="{{ path('uildver') }}" class="subm" id="homesick10">ҮЙЛДВЭРЛЭЛ </a></li>
                             <li><a href="{{ path('service') }}" class="subm" id="homesick11">ҮЙЛЧИЛГЭЭ </a></li>
-                            <li><a href="{{ path('clearance') }}" class="subm" id="homesick12">CLEARANCE </a></li>
+                            <li><a href="{{ path('clearance') }}" class="subm" id="homesick12" style="color: red">CLEARANCE </a></li>
                         </ul>
                     </li>
                     <li class="hidden-class {% if menu == 4 %}active{% endif %}"><a href="{{ path('projects') }}"

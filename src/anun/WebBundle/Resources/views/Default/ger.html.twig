@@ -20,7 +20,7 @@
             color: #ffd200;
         }
 
-        .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img{
+        .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
             padding-top: 125px;
         }
     </style>
@@ -28,11 +28,17 @@
 {% block body %}
     <div class="service-1 mid-level-padding text-center"
          style="background-color: #ffd200;padding: 0;padding-top: 30px;;overflow: hidden">
-        <div class="container">
 
-            <div class="row">
-                <div class="col-sm-7 wow slideInLeft animated"
-                     style="visibility: visible; animation-name: slideInLeft;">
+                <div class="col-sm-5 zuragnuud" style="padding: 0">
+                    <div class="right-section wow slideInLeft animated"
+                         style="visibility: visible; animation-name: slideInLeft;width: 100%">
+                        <img src="{{ asset('resources/web/images/sofa.png') }}" class="img-responsive"
+                             alt="Asem Villa">
+                    </div>
+                </div>
+
+                <div class="col-sm-7 wow slideInRight animated"
+                     style="visibility: visible; animation-name: slideInRight;">
                     <div class="outer-bound">
                         <div class="left-section">
 
@@ -45,11 +51,7 @@
                                     </div>
                                     <div class="home-alban-tasalgaa-body" style="margin-bottom: 60px;">
                                         <p>
-                                            Бидний сонгон нийлүүлдэг тавилгууд нь орчин үеийн минималист загварыг тав
-                                            тух, энгийн хэрэглээтэй хослуулсан байдаг. Бид зөвхөн байгаль орчин болон
-                                            хүний эрүүл мэнд, тэр дундаа хүүхдэд хортой нөлөө, харшил үзүүлдэггүй
-                                            хамгийн сайн чанарын материалаар хийгдсэн тавилгыг сонгон нийлүүлдэг. Та
-                                            шинэ гэртээ цогц тавилгын шийдэл хайж байгаа эсвэл гэрийнхээ нэг өрөөг
+                                            Та шинэ гэртээ цогц тавилгын шийдэл хайж байгаа эсвэл гэрийнхээ нэг өрөөг
                                             шинээр тохижуулахыг хүсч байгаа аль ч тохиолдолд хамгийн төгс зохицох
                                             шийдлийг манайхаас авах боломжтой. Бид танд бэлэн бүтээгдэхүүн санал
                                             болгохоос гадна, таны хүссэн загвар, өнгө, материал, хэмжээгээр Итали,
@@ -65,16 +67,8 @@
                 </div>
                 {#<div class="col-sm-1">#}
                 {#</div>#}
-                <div class="col-sm-5 zuragnuud">
-                    <div class="right-section wow slideInRight animated"
-                         style="visibility: visible; animation-name: slideInRight;width: 100%">
-                        <img src="{{ asset('resources/web/images/sofa.png') }}" class="img-responsive"
-                             alt="Asem Villa">
-                    </div>
-                </div>
+
             </div>
-        </div>
-    </div>
 
     <section class="container" style="margin-top: 50px;margin-bottom: 50px;">
         <div class="portfolio">
