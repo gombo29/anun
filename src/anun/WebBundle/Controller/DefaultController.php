@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -76,7 +77,7 @@ class DefaultController extends Controller
             ->orderBy('n.id', 'desc')
             ->setFirstResult(($page - 1) * $pagesize)
             ->setMaxResults($pagesize)
-            ->orderBy('norderNum', 'ASC')
+            ->orderBy('n.orderNum', 'ASC')
             ->getQuery()
             ->getArrayResult();
 
@@ -98,10 +99,11 @@ class DefaultController extends Controller
      * Зөвлөгөөнүүд
      *
      */
-    public function productAction($id, $page)
+    public function productAction(Request $request, $id, $page)
     {
+        $isajax = $request->get('isajax');
 
-        $pagesize = 20;
+        $pagesize = 2;
         $em = $this->getDoctrine()->getManager();
         $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
 
@@ -134,16 +136,22 @@ class DefaultController extends Controller
                 }
             }
         }
-        return $this->render('@anunWeb/Default/product.html.twig', array(
-            'menu' => 3,
-            'id' => $id,
-            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
-            'count' => $count,
-            'page' => $page,
-            'alba' => $alba,
-            'paren1name' => $paren1name,
-            'paren2name' => $paren2name,
-        ));
+
+        if ($isajax == true) {
+            return new JsonResponse(array('code' => 1, 'response' => $alba, 'page' => $page));
+
+        } else {
+            return $this->render('@anunWeb/Default/product.html.twig', array(
+                'menu' => 3,
+                'id' => $id,
+                'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
+                'count' => $count,
+                'page' => $page,
+                'alba' => $alba,
+                'paren1name' => $paren1name,
+                'paren2name' => $paren2name,
+            ));
+        }
     }
 
     /**
@@ -302,8 +310,6 @@ class DefaultController extends Controller
         $project = $qb
             ->getQuery()
             ->getArrayResult();
-
-
 
 
         return $this->render('@anunWeb/Default/projects.html.twig', array('menu' => 4, 'project' => $project));
