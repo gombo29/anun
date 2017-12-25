@@ -43,7 +43,7 @@ $(window).scroll(function () {
 
         $('#homesick10').css('color', '#000000');
         $('#homesick11').css('color', '#000000');
-        $('#homesick12').css('color', '#000000');
+        $('#homesick12').css('color', '#red');
         $('#homesick9').css('background-color', '#FFFFFF');
 
         $('#logo').attr('src', '/resources/web/images/logo-green-dark.png');
@@ -65,7 +65,7 @@ $(window).scroll(function () {
 
         $('#homesick10').css('color', '#FFFFFF');
         $('#homesick11').css('color', '#FFFFFF');
-        $('#homesick12').css('color', '#FFFFFF');
+        $('#homesick12').css('color', '#red');
 
         $('#homesick9').css('background-color', '#000000');
         $('#logo').attr('src', '/resources/web/images/logo-green-white.png');

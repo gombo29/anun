@@ -76,6 +76,7 @@ class DefaultController extends Controller
             ->orderBy('n.id', 'desc')
             ->setFirstResult(($page - 1) * $pagesize)
             ->setMaxResults($pagesize)
+            ->orderBy('norderNum', 'ASC')
             ->getQuery()
             ->getArrayResult();
 
