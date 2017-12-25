@@ -75,8 +75,6 @@ class DefaultController extends Controller
         $alba = $qb
             ->where('n.parent = 2')
             ->orderBy('n.id', 'desc')
-            ->setFirstResult(($page - 1) * $pagesize)
-            ->setMaxResults($pagesize)
             ->orderBy('n.orderNum', 'ASC')
             ->getQuery()
             ->getArrayResult();
@@ -248,17 +246,13 @@ class DefaultController extends Controller
         $ger = $qb
             ->where('n.parent = 1')
             ->orderBy('n.id', 'desc')
-            ->setFirstResult(($page - 1) * $pagesize)
-            ->setMaxResults($pagesize)
             ->getQuery()
             ->getArrayResult();
 
 
         return $this->render('@anunWeb/Default/ger.html.twig', array(
             'menu' => 3,
-            'pagecount' => ($count % $pagesize) > 0 ? intval($count / $pagesize) + 1 : intval($count / $pagesize),
             'count' => $count,
-            'page' => $page,
             'ger' => $ger,
         ));
     }
@@ -278,10 +272,8 @@ class DefaultController extends Controller
         $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
         /**@var ItemCategory[] $ger */
         $ger = $qb
-            ->where('n.parent = 1')
             ->orderBy('n.id', 'desc')
-            ->setFirstResult(($page - 1) * $pagesize)
-            ->setMaxResults($pagesize)
+            ->where('n.uildverlel = 1')
             ->getQuery()
             ->getArrayResult();
 
@@ -338,7 +330,23 @@ class DefaultController extends Controller
      */
     public function clearanceAction()
     {
-        return $this->render('@anunWeb/Default/clearance.html.twig', array('menu' => 3));
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var ItemCategory[] $ger */
+        $ger = $qb
+            ->orderBy('n.id', 'desc')
+            ->where('n.uildverlel = 1')
+            ->getQuery()
+            ->getArrayResult();
+
+        return $this->render('@anunWeb/Default/clearance.html.twig', array(
+            'menu' => 3,
+            'count' => $count,
+            'ger' => $ger,
+        ));
     }
 
 }
