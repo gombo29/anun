@@ -101,6 +101,13 @@ class ItemCategory
     private $uildverlel;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_clearance", type="boolean", nullable=true)
+     */
+    private $isClearance;
+
+    /**
      * @ORM\PrePersist()
      */
     public function onPrePersist() {
@@ -410,6 +417,24 @@ class ItemCategory
     public function setUildverlel($uildverlel)
     {
         $this->uildverlel = $uildverlel;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isClearance()
+    {
+        return $this->isClearance;
+    }
+
+    /**
+     * @param bool $isClearance
+     * @return ItemCategory
+     */
+    public function setIsClearance($isClearance)
+    {
+        $this->isClearance = $isClearance;
         return $this;
     }
 }
