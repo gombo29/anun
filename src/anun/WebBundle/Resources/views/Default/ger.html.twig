@@ -23,6 +23,25 @@
         .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
             padding-top: 125px;
         }
+
+        .mobile-name {
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .mobile-name h5
+        {
+            color: #000000;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .mobile-name {
+                display: block;
+            }
+        }
+
     </style>
 {% endblock %}
 {% block body %}
@@ -98,6 +117,10 @@
                                             </a>
                                             <img src="{{ image_path_category }}/{{ g.imgPath }}">
                                         </div>
+                                    </div>
+
+                                    <div class="mobile-name">
+                                        <h5 style="color: #000000">{{ g.name }}</h5>
                                     </div>
                                 </div>
                             {% endfor %}

@@ -49,6 +49,7 @@ twig:
           image_path_item: /uploads/images/items
           image_path_category: /uploads/images/categories
           image_path_project: /uploads/images/projects
+          image_path_banner: /uploads/images/banners
     form:
             resources:
                 - 'XmonColorPickerTypeBundle:Form:fields.html.twig'
@@ -204,6 +205,8 @@ easy_admin:
                     - { property: 'headline', type: 'ckeditor', label: 'Тайлбар'}
                     - { property: 'content', type: 'ckeditor' , label: 'Арчлах заавар'}
                     - { property: 'description', type: 'ckeditor' , label: 'Бүтээгдэхүүний хэмжээ'}
+                    - { property: 'uildverlel', label: 'Үйлдвэрлэл', type: "checkbox"}
+                    - { property: 'isClearance', label: 'Clearance', type: "checkbox"}
                     - { property: 'publish_at', type: 'datetime'}
                     - { property: 'expire_at', type: 'datetime'}
                     - { property: 'images', type: 'collection', type_options: { entry_type: 'anun\CmsBundle\Form\ItemGalleryType', by_reference: false,required: false } }
@@ -233,8 +236,6 @@ easy_admin:
                   - name
                   - { property: parent, type: 'entity', type_options: {class: 'anun\CmsBundle\Entity\ItemCategory', property: 'name',empty_value: '', required: true}}
                   - { property: descr,  type: 'ckeditor'}
-                  - { property: 'uildverlel', label: 'Үйлдвэрлэл', type: "checkbox"}
-                  - { property: 'isClearance', label: 'Clearance', type: "checkbox"}
                   - { property: 'imgFile', label: 'Зураг', type: 'vich_image' ,type_options: { required: false }  }
                   - { property: order_num, type: 'integer' }
         ItemGallery:

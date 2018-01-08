@@ -19,6 +19,24 @@
         .more:hover {
             color: #ffd200;
         }
+
+        .mobile-name {
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .mobile-name h5
+        {
+            color: #000000;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .mobile-name {
+                display: block;
+            }
+        }
     </style>
 {% endblock %}
 {% block body %}
@@ -47,11 +65,13 @@
                                                 <div class="overlay-inner">
                                                     <h4 class="base">{{ g.name }}</h4>
                                                     <div class="line"></div>
-                                                    <p>{{ g.descr|raw }}</p>
                                                 </div>
                                             </a>
-                                            <img src="{{ image_path_category }}/{{ g.imgPath }}">
+                                            <img src="{{ image_path_item }}/{{ g.mainImgPath }}">
                                         </div>
+                                    </div>
+                                    <div class="mobile-name">
+                                        <h5 style="color: #000000">{{ g.name }}</h5>
                                     </div>
                                 </div>
                             {% endfor %}

@@ -141,6 +141,21 @@ class Item
     private $colors;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="uildverlel", type="boolean", nullable=true)
+     */
+    private $uildverlel;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_clearance", type="boolean", nullable=true)
+     */
+    private $isClearance;
+
+
+    /**
      * @ORM\PrePersist()
      */
     public function onPrePersist() {
@@ -598,5 +613,53 @@ class Item
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set uildverlel
+     *
+     * @param boolean $uildverlel
+     *
+     * @return Item
+     */
+    public function setUildverlel($uildverlel)
+    {
+        $this->uildverlel = $uildverlel;
+
+        return $this;
+    }
+
+    /**
+     * Get uildverlel
+     *
+     * @return boolean
+     */
+    public function getUildverlel()
+    {
+        return $this->uildverlel;
+    }
+
+    /**
+     * Set isClearance
+     *
+     * @param boolean $isClearance
+     *
+     * @return Item
+     */
+    public function setIsClearance($isClearance)
+    {
+        $this->isClearance = $isClearance;
+
+        return $this;
+    }
+
+    /**
+     * Get isClearance
+     *
+     * @return boolean
+     */
+    public function getIsClearance()
+    {
+        return $this->isClearance;
     }
 }

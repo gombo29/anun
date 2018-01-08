@@ -2,6 +2,7 @@
 
 namespace anun\WebBundle\Controller;
 
+use anun\CmsBundle\Entity\Banner;
 use anun\CmsBundle\Entity\ItemCategory;
 use anun\CmsBundle\Entity\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,8 +21,18 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository('anunCmsBundle:Banner')->createQueryBuilder('n');
 
-        return $this->render('@anunWeb/Default/index.html.twig', array('menu' => 1));
+        $countQueryBuilder = clone $qb;
+        $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
+        /**@var Banner[] $banner */
+        $banner = $qb
+            ->orderBy('n.priority', 'asc')
+            ->getQuery()
+            ->getArrayResult();
+
+        return $this->render('@anunWeb/Default/index.html.twig', array('menu' => 1, 'banner' => $banner));
     }
 
 
@@ -101,7 +112,7 @@ class DefaultController extends Controller
     {
         $isajax = $request->get('isajax');
 
-        $pagesize = 2;
+        $pagesize = 8;
         $em = $this->getDoctrine()->getManager();
         $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
 
@@ -266,7 +277,7 @@ class DefaultController extends Controller
 
         $pagesize = 20;
         $em = $this->getDoctrine()->getManager();
-        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+        $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
 
         $countQueryBuilder = clone $qb;
         $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
@@ -331,16 +342,17 @@ class DefaultController extends Controller
     public function clearanceAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $qb = $em->getRepository('anunCmsBundle:ItemCategory')->createQueryBuilder('n');
+        $qb = $em->getRepository('anunCmsBundle:Item')->createQueryBuilder('n');
 
         $countQueryBuilder = clone $qb;
         $count = $countQueryBuilder->select('count(n.id)')->getQuery()->getSingleScalarResult();
         /**@var ItemCategory[] $ger */
         $ger = $qb
             ->orderBy('n.id', 'desc')
-            ->where('n.uildverlel = 1')
+            ->where('n.isClearance = 1')
             ->getQuery()
             ->getArrayResult();
+
 
         return $this->render('@anunWeb/Default/clearance.html.twig', array(
             'menu' => 3,

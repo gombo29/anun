@@ -12,9 +12,12 @@
     <div class="swiper-container parallax-slider parallax-window" data-parallax="scroll"
          data-speed="-0.1">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"
-                 style="background-image: url('{{ asset('resources/web/images/cover4.jpg') }}');background-position: center center;background-repeat: no-repeat;">
-            </div>
+
+            {% for b in banner %}
+                <div class="swiper-slide"
+                     style="background-image: url('{{ image_path_banner }}/{{ b.img }}');background-position: center center;background-repeat: no-repeat;">
+                </div>
+            {% endfor %}
         </div>
         <!-- Add Arrows -->
         <div class="swiper-button-next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
@@ -38,7 +41,8 @@
                             хослуулан ашигладаг ба байгаль орчин, хүний эрүүл мэндэд аливаа сөрөг нөлөөгүй тавилгыг
                             чанарын дээд төвшинд мэргэжлийн баг хамт олон үйлдвэрлэдэг давуу талтай.</i>
                         </h6>
-                        <img src="{{ asset('resources/web/images/signature.png') }}" style="margin-top: 50px;width: 100px;">
+                        <img src="{{ asset('resources/web/images/signature.png') }}"
+                             style="margin-top: 50px;width: 100px;">
                     </div>
                 </div>
             </div>
@@ -48,7 +52,7 @@
     <!-- sandal -->
 
     <div class="service-1 mid-level-padding text-center"
-         style="background-color: #ffd200;padding: 0;padding-top: 50px;padding-bottom: 70px;overflow: hidden">
+         style="background-color: #ffd200;padding: 0;padding-top: 50px;overflow: hidden">
         <div class="container">
 
             <div class="row">
@@ -87,7 +91,7 @@
                 <div class="col-sm-6 zuragnuud">
                     <div class="right-section wow slideInRight animated"
                          style="visibility: visible; animation-name: slideInRight;width: 100%">
-                        <img src="{{ asset('resources/web/images/chair.png') }}" class="img-responsive" alt="Сандал">
+                        <img src="{{ asset('resources/web/images/sandal.png') }}" class="img-responsive" alt="Сандал">
                     </div>
                 </div>
             </div>

@@ -19,6 +19,23 @@
         .more:hover {
             color: #ffd200;
         }
+
+        .mobile-name {
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .mobile-name h5 {
+            color: #000000;
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-name {
+                display: block;
+            }
+        }
+
     </style>
 {% endblock %}
 {% block body %}
@@ -42,7 +59,7 @@
                                 </div>
                             </div>
                             <div style="background-color: #fff;padding-bottom: 30px;text-align: left">
-                                <h2> </h2>
+                                <h2></h2>
                             </div>
                             {% for i in project %}
                                 <div class="col-1-4 mix work-item graphic" style="display: inline-block;">
@@ -59,6 +76,9 @@
                                             <img src="{{ image_path_project }}/{{ i.previewImg }}">
                                         </div>
                                     </div>
+                                    <div class="mobile-name">
+                                        <h5>{{ i.title }}</h5>
+                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -69,9 +89,9 @@
 
         {#<div class="more">#}
 
-            {#<i class="fa fa-th-large" aria-hidden="true"></i>#}
-            {#<a class="" href="#">Илүү ихийг үзэх#}
-            {#</a>#}
+        {#<i class="fa fa-th-large" aria-hidden="true"></i>#}
+        {#<a class="" href="#">Илүү ихийг үзэх#}
+        {#</a>#}
 
         {#</div>#}
 

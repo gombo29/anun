@@ -33,6 +33,25 @@
             margin-top: 35px;
             margin-left: 60px;
         }
+
+        .mobile-name {
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .mobile-name h5
+        {
+            color: #000000;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .mobile-name {
+                display: block;
+            }
+        }
+
     </style>
 
 
@@ -76,7 +95,7 @@
                 <div class="col-sm-5 zuragnuud">
                     <div class="right-section wow slideInRight animated"
                          style="visibility: visible; animation-name: slideInRight;width: 100%">
-                        <img src="{{ asset('resources/web/images/chair.png') }}" class="img-responsive"
+                        <img src="{{ asset('resources/web/images/sandal.png') }}" class="img-responsive"
                              alt="Asem Villa">
                     </div>
                 </div>
@@ -112,6 +131,9 @@
                                             </a>
                                             <img src="{{ image_path_category }}/{{ g.imgPath }}" alt="work">
                                         </div>
+                                    </div>
+                                    <div class="mobile-name">
+                                        <h5 style="color: #000000">{{ g.name }}</h5>
                                     </div>
                                 </div>
                             {% endfor %}
